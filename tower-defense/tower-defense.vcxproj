@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2679275d-d3ee-476f-a08c-5d48a644c627}</ProjectGuid>
+    <ProjectGuid>{ea8263e4-20d4-45ed-94ab-2a1b837f8e86}</ProjectGuid>
     <RootNamespace>tower_defense</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
