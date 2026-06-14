@@ -126,8 +126,15 @@ void Game::processEvents(SDL_Renderer* renderer, bool& running) {
 
 void Game::update(float dT) {
     //Update the units.
-    for (auto& unitSelected : listUnits)
-        unitSelected.update(dT, level, listUnits);
+    for (auto it = listUnits.begin(); it != listUnits.end();) {
+        (*it).update(dT, level, listUnits);
+
+        //is alive?
+        if ((*it).getIsAlive() == false)
+            it = listUnits.erase(it);
+        else
+            it++;
+    }
 }
 
 void Game::draw(SDL_Renderer* renderer) {

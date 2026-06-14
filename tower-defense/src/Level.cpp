@@ -43,23 +43,9 @@ void Level::draw(SDL_Renderer* renderer, int tileSize) {
             }
         }
     }
-
-    //Draw the flow distance on each tile.
-    for (int y = 0; y < tileCountY; y++) {
-        for (int x = 0; x < tileCountX; x++) {
-            int index = x + y * tileCountX;
-            if (index < 0 || index >= (int)listTiles.size())
-                continue;
-
-            const Tile& tileSelected = listTiles[index];
-            if (tileSelected.isWall || tileSelected.flowDistance == flowDistanceMax)
-                continue;
-
-            TextRenderer::drawNumber(renderer, tileSelected.flowDistance,
-                x * tileSize, y * tileSize, tileSize);
-        }
-    }
 }
+
+
 
 void Level::drawTile(SDL_Renderer* renderer, int x, int y, int tileSize) {
     //Set the default texture image to be empty.
@@ -119,7 +105,7 @@ void Level::setTileWall(int x, int y, bool setWall) {
 }
 
 Vector2D Level::getTargetPos() {
-    return Vector2D((float)targetX, (float)targetY);
+    return Vector2D((float)targetX + 0.5f, (float)targetY + 0.5f);
 }
 
 void Level::calculateFlowField() {

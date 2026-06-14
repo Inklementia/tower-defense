@@ -12,6 +12,7 @@ public:
 	void update(float dT, Level& level, std::vector<Unit>& listUnits);
 	void draw(SDL_Renderer* renderer, int tileSize);
 	bool checkOverlap(Vector2D posOther, float sizeOther);
+	bool getIsAlive();
 
 
 private:
@@ -20,4 +21,6 @@ private:
 	static const float size;
 
 	SDL_Texture* texture = nullptr;
+
+	bool isAlive = true;
 };
