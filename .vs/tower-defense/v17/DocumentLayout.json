@@ -1,7 +1,48 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\work\\personal\\cpp\\tower-defense\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Level.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\TOWER-DEFENSE\\UNIT.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:TOWER-DEFENSE\\UNIT.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SDL2_image.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\SDL2_image.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\TextureManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\TextureManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\TOWER-DEFENSE\\LEVEL.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:TOWER-DEFENSE\\LEVEL.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\TOWER-DEFENSE\\TEXTURELOADER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:TOWER-DEFENSE\\TEXTURELOADER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +67,130 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Level.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\Level.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.cpp",
+              "RelativeToolTip": "tower-defense\\Level.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-14T09:33:11.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SDL2_image.dll",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SDL2_image.dll",
+              "RelativeDocumentMoniker": "tower-defense\\SDL2_image.dll",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SDL2_image.dll",
+              "RelativeToolTip": "tower-defense\\SDL2_image.dll",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001697|",
+              "WhenOpened": "2026-06-14T09:33:00.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TextureManager.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureManager.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\TextureManager.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureManager.cpp",
+              "RelativeToolTip": "tower-defense\\TextureManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-14T09:32:11.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TextureManager.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureManager.h",
+              "RelativeDocumentMoniker": "tower-defense\\TextureManager.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureManager.h",
+              "RelativeToolTip": "tower-defense\\TextureManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-14T09:31:09.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Unit.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Unit.h",
+              "RelativeDocumentMoniker": "tower-defense\\Unit.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Unit.h",
+              "RelativeToolTip": "tower-defense\\Unit.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-14T09:24:15.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Level.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.h",
+              "RelativeDocumentMoniker": "tower-defense\\Level.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.h",
+              "RelativeToolTip": "tower-defense\\Level.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-14T09:24:10.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TextureLoader.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureLoader.h",
+              "RelativeDocumentMoniker": "tower-defense\\TextureLoader.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureLoader.h",
+              "RelativeToolTip": "tower-defense\\TextureLoader.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-14T09:24:02.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\main.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\main.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\main.cpp",
+              "RelativeToolTip": "tower-defense\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-14T09:22:50.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.h",
+              "RelativeDocumentMoniker": "tower-defense\\Game.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.h",
+              "RelativeToolTip": "tower-defense\\Game.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-14T09:22:45.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\Game.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.cpp",
+              "RelativeToolTip": "tower-defense\\Game.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-14T09:22:20.68Z",
+              "EditorCaption": ""
             }
           ]
         }

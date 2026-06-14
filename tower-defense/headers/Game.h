@@ -1,0 +1,36 @@
+#pragma once
+#include "SDL.h"
+#include <vector>
+#include <chrono>
+#include <memory>
+#include "GameConfig.h"
+#include "Unit.h"
+#include "Level.h"
+
+class Game{
+private:
+	enum class PlacementMode {
+		wall,
+		unit
+	} placementModeCurrent;
+
+public:
+	Game(SDL_Window* window, SDL_Renderer* renderer);
+	~Game();
+
+private:
+	void processEvents(SDL_Renderer* renderer, bool& running);
+	void update(float dT);
+	void draw(SDL_Renderer* renderer);
+	void addUnit(SDL_Renderer* renderer, Vector2D posMouse);
+	void removeUnitsAtMousePosition(Vector2D posMouse);
+
+	int mouseDownStatus = 0;
+
+	Level level;
+	
+	std::vector<Unit> listUnits;
+
+	SDL_Texture* textureOverlay = nullptr;
+	bool overlayVisible = true;
+};
