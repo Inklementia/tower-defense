@@ -161,6 +161,7 @@ xcopy /Y /E /I /D "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MathUtils.cpp" />
+    <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="Turret.cpp" />
@@ -172,6 +173,7 @@ xcopy /Y /E /I /D "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MathUtils.h" />
+    <ClInclude Include="Projectile.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="Turret.h" />

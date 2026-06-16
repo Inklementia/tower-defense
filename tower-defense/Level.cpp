@@ -36,9 +36,17 @@ void Level::draw(SDL_Renderer* renderer, int tileSize) {
     for (int y = 0; y < tileCountY; y++) {
         for (int x = 0; x < tileCountX; x++) {
             if ((x + y) % 2 == 0)
-                SDL_SetRenderDrawColor(renderer, 240, 240, 240, 255);
+                SDL_SetRenderDrawColor(renderer,
+                    GameConfig::LEVEL_CHECKER_LIGHT.r,
+                    GameConfig::LEVEL_CHECKER_LIGHT.g,
+                    GameConfig::LEVEL_CHECKER_LIGHT.b,
+                    GameConfig::LEVEL_CHECKER_LIGHT.a);
             else
-                SDL_SetRenderDrawColor(renderer, 225, 225, 225, 255);
+                SDL_SetRenderDrawColor(renderer,
+                    GameConfig::LEVEL_CHECKER_DARK.r,
+                    GameConfig::LEVEL_CHECKER_DARK.g,
+                    GameConfig::LEVEL_CHECKER_DARK.b,
+                    GameConfig::LEVEL_CHECKER_DARK.a);
 
             SDL_Rect rect = { x * tileSize, y * tileSize, tileSize, tileSize };
             SDL_RenderFillRect(renderer, &rect);

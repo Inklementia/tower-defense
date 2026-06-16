@@ -1,12 +1,12 @@
 #include "MathUtils.h"
+#include "GameConfig.h"
 
-
-const float MathUtils::PI = 3.14159265359f;
+const float MathUtils::PI = GameConfig::PI;
 
 float MathUtils::angleRadToDeg(float angle) {
-	return angle * 180.0f / PI;
+	return angle * GameConfig::DEGREES_IN_HALF_CIRCLE / PI;
 }
 
 float MathUtils::angleDegToRad(float angle) {
-	return angle * PI / 180.0f;
+	return angle * PI / GameConfig::DEGREES_IN_HALF_CIRCLE;
 }

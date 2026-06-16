@@ -5,6 +5,8 @@
 #include "Vector2D.h"
 #include "Level.h"
 #include "TextureLoader.h"
+#include "Timer.h"
+#include "GameConfig.h"
 
 class Unit {
 public:
@@ -13,8 +15,9 @@ public:
 	void update(float dT, Level& level, std::vector<std::shared_ptr<Unit>>& listUnits);
 	void draw(SDL_Renderer* renderer, int tileSize);
 	bool checkOverlap(Vector2D posOther, float sizeOther);
-	bool getIsAlive();
+	bool isAlive();
 	Vector2D getPos();
+	void removeHealth(int damage);
 
 private:
 	Vector2D pos;
@@ -23,5 +26,8 @@ private:
 
 	SDL_Texture* texture = nullptr;
 
-	bool isAlive = true;
+	Timer timerJustHurt;
+
+	const int healthMax = GameConfig::UNIT_HEALTH_MAX;
+	int healthCurrent = healthMax;
 };

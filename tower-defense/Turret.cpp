@@ -1,18 +1,25 @@
 #include "Turret.h"
 #include "Unit.h"
+#include "Timer.h"
+#include "GameConfig.h"
 
-const float Turret::speedAngular = MathUtils::angleDegToRad(180.0f), Turret::weaponRange = 5.0f;
+const float Turret::speedAngular = MathUtils::angleDegToRad(GameConfig::TURRET_ROTATION_SPEED_DEG);
+const float Turret::weaponRange = GameConfig::TURRET_WEAPON_RANGE;
 
 Turret::Turret(SDL_Renderer* renderer, Vector2D setPos) :
-	pos(setPos), angle(0.0f) {
+	pos(setPos), angle(0.0f), timerWeapon(GameConfig::TURRET_WEAPON_COOLDOWN_S) {
 	textureMain = TextureLoader::loadTexture(renderer, "Turret.bmp");
 	textureShadow = TextureLoader::loadTexture(renderer, "Turret Shadow.bmp");
 }
 
-void Turret::update(float dT, std::vector<std::shared_ptr<Unit>>& listUnits) {
+void Turret::update(SDL_Renderer* renderer, float dT, std::vector<std::shared_ptr<Unit>>& listUnits,
+	std::vector<Projectile>& listProjectiles) {
+	//Update timer.
+	timerWeapon.countDown(dT);
+
 	//Check if a target has been found but is no longer alive or is out of weapon range.
 	if (auto unitTargetSP = unitTarget.lock()) {
-		if (unitTargetSP->getIsAlive() == false ||
+		if (unitTargetSP->isAlive() == false ||
 			(unitTargetSP->getPos() - pos).magnitude() > weaponRange) {
 			//Then reset it.
 			unitTarget.reset();
@@ -23,6 +30,14 @@ void Turret::update(float dT, std::vector<std::shared_ptr<Unit>>& listUnits) {
 	if (unitTarget.expired())
 		unitTarget = findEnemyUnit(listUnits);
 
+	//Update angle and shoot a projectile
+	if (updateAngle(dT)) {
+		shootProjectile(renderer, listProjectiles);
+	}
+}
+
+bool Turret::updateAngle(float dT) {
+	//Rotate towards the target
 	if (auto unitTargetSP = unitTarget.lock()) {
 		//Determine the direction normal to the target.
 		Vector2D directionNormalTarget = (unitTargetSP->getPos() - pos).normalize();
@@ -31,23 +46,32 @@ void Turret::update(float dT, std::vector<std::shared_ptr<Unit>>& listUnits) {
 		float angleToTarget = directionNormalTarget.angleBetween(Vector2D(angle));
 
 		//Update the angle as required.
-		if (abs(angleToTarget) > 0.0f) {
-			//Determine the angle to move this frame.
-			float angleMove = -copysign(speedAngular * dT, angleToTarget);
-			if (abs(angleMove) > abs(angleToTarget)) {
-				//It will point directly at it's target this frame.
-				angle = directionNormalTarget.angle();
-			}
-			else {
-				//It won't reach it's target this frame.
-				angle += angleMove;
-			}
+		//Determine the angle to move this frame.
+		float angleMove = -copysign(speedAngular * dT, angleToTarget);
+		if (abs(angleMove) > abs(angleToTarget)) {
+			//It will point directly at it's target this frame.
+			angle = directionNormalTarget.angle();
+			return true;
 		}
+		else {
+			//It won't reach it's target this frame.
+			angle += angleMove;
+		}
+	}
+
+	return false;
+}
+
+void Turret::shootProjectile(SDL_Renderer* renderer, std::vector<Projectile>& listProjectiles) {
+	//Shoot a projectile towards the target unit if the weapon timer is ready.
+	if (timerWeapon.timeSIsZero()) {
+		listProjectiles.push_back(Projectile(renderer, pos, Vector2D(angle)));
+		timerWeapon.resetToMax();
 	}
 }
 
 void Turret::draw(SDL_Renderer* renderer, int tileSize) {
-	drawTextureWithOffset(renderer, textureShadow, 5, tileSize);
+	drawTextureWithOffset(renderer, textureShadow, GameConfig::TURRET_SHADOW_OFFSET, tileSize);
 	drawTextureWithOffset(renderer, textureMain, 0, tileSize);
 }
 

@@ -128,7 +128,10 @@ void Game::update(SDL_Renderer* renderer, float dT) {
 
     //Update the turrets.
     for (auto& turretSelected : listTurrets)
-        turretSelected.update(dT, listUnits);
+        turretSelected.update(renderer, dT, listUnits, listProjectiles);
+
+    //Update the projectiles.
+    updateProjectiles(dT);
 
     updateSpawnUnitsIfRequired(renderer, dT);
 }
@@ -143,13 +146,27 @@ void Game::updateUnits(float dT) {
             (*it)->update(dT, level, listUnits);
 
             //Check if the unit is still alive.  If not then erase it and don't increment the iterator.
-            if ((*it)->getIsAlive() == false) {
+            if ((*it)->isAlive() == false) {
                 it = listUnits.erase(it);
                 increment = false;
             }
         }
 
         if (increment)
+            it++;
+    }
+}
+
+void Game::updateProjectiles(float dT) {
+    //Loop through the list of projectiles and update all of them.
+    auto it = listProjectiles.begin();
+    while (it != listProjectiles.end()) {
+        (*it).update(dT, listUnits);
+
+        //Check if the projectile has collided or not, erase it if needed, and update the iterator.
+        if ((*it).getCollisionOccurred())
+            it = listProjectiles.erase(it);
+        else
             it++;
     }
 }
@@ -177,10 +194,10 @@ void Game::draw(SDL_Renderer* renderer) {
     //Draw.
     //Set the draw color to white.
     SDL_SetRenderDrawColor(renderer,
-        GameConfig::CLEAR_COLOR_R,
-        GameConfig::CLEAR_COLOR_G,
-        GameConfig::CLEAR_COLOR_B,
-        GameConfig::CLEAR_COLOR_A);
+        GameConfig::CLEAR_COLOR.r,
+        GameConfig::CLEAR_COLOR.g,
+        GameConfig::CLEAR_COLOR.b,
+        GameConfig::CLEAR_COLOR.a);
     //Clear the screen.
     SDL_RenderClear(renderer);
 
@@ -196,6 +213,10 @@ void Game::draw(SDL_Renderer* renderer) {
     //Draw turrets
     for (auto& turretSelected : listTurrets)
         turretSelected.draw(renderer, GameConfig::TILE_SIZE);
+
+    //Draw projectiles
+    for (auto& projectSelected : listProjectiles)
+        projectSelected.draw(renderer, GameConfig::TILE_SIZE);
     
     //Draw the overlay.
     if (textureOverlay != nullptr && overlayVisible) {
@@ -214,7 +235,7 @@ void Game::addUnit(SDL_Renderer* renderer, Vector2D posMouse) {
 }
 
 void Game::addTurret(SDL_Renderer* renderer, Vector2D posMouse) {
-    Vector2D pos((int)posMouse.x + 0.5f, (int)posMouse.y + 0.5f);
+    Vector2D pos((int)posMouse.x + GameConfig::TILE_CENTER_OFFSET, (int)posMouse.y + GameConfig::TILE_CENTER_OFFSET);
     listTurrets.push_back(Turret(renderer, pos));
 }
 

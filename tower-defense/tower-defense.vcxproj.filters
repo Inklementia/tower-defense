@@ -39,6 +39,7 @@
     <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Projectile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameConfig.h">
@@ -68,6 +69,7 @@
     <ClInclude Include="Vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Projectile.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
