@@ -6,13 +6,15 @@
 #include "GameConfig.h"
 #include "Timer.h"
 #include "Unit.h"
+#include "Turret.h"
 #include "Level.h"
 
-class Game{
+class Game {
 private:
 	enum class PlacementMode {
 		wall,
-		unit
+		unit,
+		turret,
 	} placementModeCurrent;
 
 public:
@@ -25,13 +27,15 @@ private:
 	void updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT);
 	void draw(SDL_Renderer* renderer);
 	void addUnit(SDL_Renderer* renderer, Vector2D posMouse);
-	void removeUnitsAtMousePosition(Vector2D posMouse);
+	void addTurret(SDL_Renderer* renderer, Vector2D posMouse);
+	void removeTurretsAtMousePosition(Vector2D posMouse);
 
 	int mouseDownStatus = 0;
 
 	Level level;
 	
 	std::vector<Unit> listUnits;
+	std::vector<Turret> listTurrets;
 
 	SDL_Texture* textureOverlay = nullptr;
 	bool overlayVisible = true;

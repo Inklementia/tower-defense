@@ -77,7 +77,7 @@ void Game::processEvents(SDL_Renderer* renderer, bool& running) {
                 placementModeCurrent = PlacementMode::wall;
                 break;
             case SDL_SCANCODE_2:
-                placementModeCurrent = PlacementMode::unit;
+                placementModeCurrent = PlacementMode::turret;
                 break;
 
                 //Show/hide the overlay
@@ -100,26 +100,23 @@ void Game::processEvents(SDL_Renderer* renderer, bool& running) {
         case SDL_BUTTON_LEFT:
             switch (placementModeCurrent) {
             case PlacementMode::wall:
-
                 //Add wall at the mouse position.
                 level.setTileWall((int)posMouse.x, (int)posMouse.y, true);
                 break;
-            case PlacementMode::unit:
-
-                //Add the selected unit at the mouse position.
+            case PlacementMode::turret:
+                //Add the selected turret at the mouse position.
                 if (mouseDownThisFrame)
-                    addUnit(renderer, posMouse);
+                    addTurret(renderer, posMouse);
                 break;
             }
             break;
 
-        case SDL_BUTTON_RIGHT:
 
+        case SDL_BUTTON_RIGHT:
             //Remove wall at the mouse position.
             level.setTileWall((int)posMouse.x, (int)posMouse.y, false);
-
-            //Remove units at the mouse position.
-            removeUnitsAtMousePosition(posMouse);
+            //Remove turrets at the mouse position.
+            removeTurretsAtMousePosition(posMouse);
             break;
         }
     }
@@ -136,10 +133,12 @@ void Game::update(SDL_Renderer* renderer, float dT) {
         else
             it++;
     }
-
+    //Update turrets
+    for (auto& turretSelected : listTurrets)
+        turretSelected.update(dT);
+    
     updateSpawnUnitsIfRequired(renderer, dT);
 }
-
 
 void Game::updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT) {
     spawnTimer.countDown(dT);
@@ -179,6 +178,10 @@ void Game::draw(SDL_Renderer* renderer) {
     //Draw the enemy units.
     for (auto& unitSelected : listUnits)
         unitSelected.draw(renderer, GameConfig::TILE_SIZE);
+
+    //Draw turrets
+    for (auto& turretSelected : listTurrets)
+        turretSelected.draw(renderer, GameConfig::TILE_SIZE);
     
     //Draw the overlay.
     if (textureOverlay != nullptr && overlayVisible) {
@@ -196,12 +199,16 @@ void Game::addUnit(SDL_Renderer* renderer, Vector2D posMouse) {
     listUnits.push_back(Unit(renderer, posMouse));
 }
 
-void Game::removeUnitsAtMousePosition(Vector2D posMouse) {
-    for (int count = 0; count < listUnits.size(); count++) {
-        auto& unitSelected = listUnits[count];
-        if (unitSelected.checkOverlap(posMouse, 0.0f)) {
-            listUnits.erase(listUnits.begin() + count);
-            count--;
-        }
+void Game::addTurret(SDL_Renderer* renderer, Vector2D posMouse) {
+    Vector2D pos((int)posMouse.x + 0.5f, (int)posMouse.y + 0.5f);
+    listTurrets.push_back(Turret(renderer, pos));
+}
+
+void Game::removeTurretsAtMousePosition(Vector2D posMouse) {
+    for (auto it = listTurrets.begin(); it != listTurrets.end();) {
+        if ((*it).checkIfOnTile((int)posMouse.x, (int)posMouse.y))
+            it = listTurrets.erase(it);
+        else
+            it++;
     }
 }
