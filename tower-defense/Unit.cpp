@@ -104,7 +104,7 @@ bool Unit::checkOverlap(Vector2D posOther, float sizeOther) {
 }
 
 bool Unit::isAlive() {
-	return healthCurrent > 0;
+	return (healthCurrent > 0);
 }
 
 Vector2D Unit::getPos() {

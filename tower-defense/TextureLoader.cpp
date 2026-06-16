@@ -12,7 +12,7 @@ SDL_Texture* TextureLoader::loadTexture(SDL_Renderer* renderer, std::string file
         }
         else {
             //Setup the relative filepath to the images folder using the input filename.
-            std::string filepath = "assets/" + filename;
+            std::string filepath = "Data/Assets/" + filename;
 
             //Try to create a surface using the filepath.
             SDL_Surface* surfaceTemp = SDL_LoadBMP(filepath.c_str());

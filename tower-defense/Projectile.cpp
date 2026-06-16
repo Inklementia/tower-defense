@@ -48,7 +48,7 @@ void Projectile::checkCollisions(std::vector<std::shared_ptr<Unit>>& listUnits) 
 		for (int count = 0; count < listUnits.size() && collisionOccurred == false; count++) {
 			auto& unitSelected = listUnits[count];
 			if (unitSelected != nullptr && unitSelected->checkOverlap(pos, size)) {
-				unitSelected->removeHealth(1);
+				unitSelected->removeHealth(GameConfig::PROJECTILE_DAMAGE);
 				collisionOccurred = true;
 			}
 		}

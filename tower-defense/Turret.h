@@ -2,6 +2,7 @@
 #include <memory>
 #include <vector>
 #include "SDL.h"
+#include "SDL_mixer.h"
 #include "MathUtils.h"
 #include "Vector2D.h"
 #include "TextureLoader.h"
@@ -33,4 +34,5 @@ private:
 
 	SDL_Texture* textureMain = nullptr,
 	*textureShadow = nullptr;
+	Mix_Chunk* mix_ChunkShoot = nullptr;
 };

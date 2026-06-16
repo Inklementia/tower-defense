@@ -53,6 +53,13 @@ namespace GameConfig {
 	constexpr float PROJECTILE_SPEED = 10.0f;
 	constexpr float PROJECTILE_SIZE = 0.2f;
 	constexpr float PROJECTILE_MAX_DISTANCE = 20.0f;
+	constexpr int PROJECTILE_DAMAGE = 1;
+
+	// Audio
+	constexpr int AUDIO_FREQUENCY = 44100;
+	constexpr int AUDIO_CHANNELS = 2;
+	constexpr int AUDIO_CHUNK_SIZE = 1024;
+	constexpr int AUDIO_MIXER_CHANNELS = 32;
 
 	// Level / flow field
 	constexpr unsigned char FLOW_DISTANCE_MAX = 255;

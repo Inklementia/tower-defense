@@ -1,5 +1,6 @@
 #pragma once
 #include "SDL.h"
+#include "SDL_mixer.h"
 #include <vector>
 #include <chrono>
 #include <memory>
@@ -46,4 +47,6 @@ private:
 
 	Timer spawnTimer, roundTimer;
 	int spawnUnitCount = 0;
+
+	Mix_Chunk* mix_ChunkSpawnUnit = nullptr;
 };

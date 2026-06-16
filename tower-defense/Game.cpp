@@ -1,5 +1,5 @@
 #include "Game.h"
-
+#include "SoundLoader.h"
 Game::Game(SDL_Window* window, SDL_Renderer* renderer) :
     placementModeCurrent(PlacementMode::wall),
     level(renderer, GameConfig::TILE_COUNT_X, GameConfig::TILE_COUNT_Y),
@@ -9,6 +9,9 @@ Game::Game(SDL_Window* window, SDL_Renderer* renderer) :
     if (window != nullptr && renderer != nullptr) {
         //Load the overlay texture.
         textureOverlay = TextureLoader::loadTexture(renderer, "Overlay.bmp");
+
+        //Load the spawn unit sound.
+        mix_ChunkSpawnUnit = SoundLoader::loadSound("Spawn Unit.ogg");
 
         //Store the current times for the clock.
         auto time1 = std::chrono::system_clock::now();
@@ -41,6 +44,7 @@ Game::Game(SDL_Window* window, SDL_Renderer* renderer) :
 Game::~Game() {
     //Clean up.
     TextureLoader::deallocateTextures();
+    SoundLoader::deallocateSounds();
 }
 
 void Game::processEvents(SDL_Renderer* renderer, bool& running) {
@@ -185,6 +189,11 @@ void Game::updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT) {
     //Add a unit if needed.
     if (spawnUnitCount > 0 && spawnTimer.timeSIsZero()) {
         addUnit(renderer, level.getRandomEnemySpawnerLocation());
+
+        //Play the spawn unit sound.
+        if (mix_ChunkSpawnUnit != nullptr)
+            Mix_PlayChannel(-1, mix_ChunkSpawnUnit, 0);
+
         spawnUnitCount--;
         spawnTimer.resetToMax();
     }

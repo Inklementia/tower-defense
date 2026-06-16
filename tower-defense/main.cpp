@@ -1,6 +1,8 @@
 #include <iostream>
+#include <ctime>
 #include "SDL.h"
 #include "GameConfig.h"
+#include "SDL_mixer.h"
 #include "Game.h"
 
 int main(int argc, char* args[]) {
@@ -8,11 +10,28 @@ int main(int argc, char* args[]) {
 	//numbers every time the game is run.
 	srand((unsigned)time(NULL));
 
-	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-		std::cout << "Error: Couldn't initialize SDL Video = " << SDL_GetError() << std::endl;
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
+		std::cout << "Error: Couldn't initialize SDL Video or Audio = " << SDL_GetError() << std::endl;
 		return 1;
 	}
 	else {
+		//Setup the audio mixer.
+		bool isSDLMixerLoaded = (Mix_OpenAudio(
+			GameConfig::AUDIO_FREQUENCY,
+			MIX_DEFAULT_FORMAT,
+			GameConfig::AUDIO_CHANNELS,
+			GameConfig::AUDIO_CHUNK_SIZE) == 0);
+		if (isSDLMixerLoaded == false) {
+			std::cout << "Error: Couldn't initialize Mix_OpenAudio = " << Mix_GetError() << std::endl;
+		}
+		else {
+			Mix_AllocateChannels(GameConfig::AUDIO_MIXER_CHANNELS);
+
+			//Output the name of the audio driver.
+			std::cout << "Audio driver = " << SDL_GetCurrentAudioDriver() << std::endl;
+		}
+
+
 		//Create the window.
 		SDL_Window* window = SDL_CreateWindow("Tower Base Defense",
 			SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
@@ -23,7 +42,7 @@ int main(int argc, char* args[]) {
 		}
 		else {
 			//Create a renderer for GPU accelerated drawing.
-			SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED |
+			SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | 
 				SDL_RENDERER_PRESENTVSYNC);
 			if (renderer == nullptr) {
 				std::cout << "Error: Couldn't create renderer = " << SDL_GetError() << std::endl;
@@ -38,7 +57,6 @@ int main(int argc, char* args[]) {
 				SDL_GetRendererInfo(renderer, &rendererInfo);
 				std::cout << "Renderer = " << rendererInfo.name << std::endl;
 
-				//Start the game.
 				Game game(window, renderer);
 
 				//Clean up.
@@ -50,6 +68,11 @@ int main(int argc, char* args[]) {
 		}
 
 		//Clean up.
+		if (isSDLMixerLoaded) {
+			Mix_CloseAudio();
+			Mix_Quit();
+		}
+
 		SDL_Quit();
 	}
 	return 0;

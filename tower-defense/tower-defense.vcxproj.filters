@@ -7,9 +7,6 @@
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
     </Filter>
-    <Filter Include="assets">
-      <UniqueIdentifier>{685a88e6-fbc8-479e-8305-bfd706b9dc45}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,7 +36,12 @@
     <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameConfig.h">
@@ -69,50 +71,16 @@
     <ClInclude Include="Vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="assets\Overlay.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Arrow Down Left.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Arrow Down Right.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Arrow Down.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Arrow Left.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Arrow Right.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Arrow Up Left.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Arrow Up Right.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Arrow Up.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Empty.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Target.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Tile Wall.bmp">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="assets\Unit.bmp">
-      <Filter>assets</Filter>
-    </None>
+    <None Include="SDL2_mixer.dll" />
+    <None Include="libogg-0.dll" />
   </ItemGroup>
 </Project>

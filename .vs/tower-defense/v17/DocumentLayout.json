@@ -3,6 +3,89 @@
   "WorkspaceRootPath": "C:\\work\\personal\\cpp\\tower-defense\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Turret.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Turret.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 9\\Turret.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Projectile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Projectile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Unit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Unit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Unit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Unit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Unit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Timer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Timer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Timer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Projectile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Projectile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Turret.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Turret.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Level.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Level.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\GameConfig.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\GameConfig.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Timer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\Timer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Turret.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tower-defense\\src\\Turret.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -10,22 +93,10 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Unit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68142214-8E19-1C84-3CFF-4B18A3F25C69}|..\\..\\..\\..\\Users\\inna-a\\AppData\\Roaming\\Microsoft\\VisualStudio\\17.0_ca68e266\\SingleFileISense\\_sfi_432e22c0-98fb-4bba-a2bf-05888aece1d2_.vcxproj|C:\\USERS\\INNA-A\\DOWNLOADS\\TOWER BASE DEFENSE GAME V1.9.1\\PART 6\\UNIT.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{68142214-8E19-1C84-3CFF-4B18A3F25C69}|..\\..\\..\\..\\Users\\inna-a\\AppData\\Roaming\\Microsoft\\VisualStudio\\17.0_ca68e266\\SingleFileISense\\_sfi_432e22c0-98fb-4bba-a2bf-05888aece1d2_.vcxproj|C:\\USERS\\INNA-A\\DOWNLOADS\\TOWER BASE DEFENSE GAME V1.9.1\\PART 6\\TURRET.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Turret.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68142214-8E19-1C84-3CFF-4B18A3F25C69}|..\\..\\..\\..\\Users\\inna-a\\AppData\\Roaming\\Microsoft\\VisualStudio\\17.0_ca68e266\\SingleFileISense\\_sfi_432e22c0-98fb-4bba-a2bf-05888aece1d2_.vcxproj|C:\\USERS\\INNA-A\\DOWNLOADS\\TOWER BASE DEFENSE GAME V1.9.1\\PART 6\\TIMER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{68142214-8E19-1C84-3CFF-4B18A3F25C69}|..\\..\\..\\..\\Users\\inna-a\\AppData\\Roaming\\Microsoft\\VisualStudio\\17.0_ca68e266\\SingleFileISense\\_sfi_432e22c0-98fb-4bba-a2bf-05888aece1d2_.vcxproj|C:\\USERS\\INNA-A\\DOWNLOADS\\TOWER BASE DEFENSE GAME V1.9.1\\PART 6\\GAME.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Timer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -61,6 +132,41 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\headers\\GameConfig.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tower-defense\\headers\\GameConfig.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Unit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Timer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Turret.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Turret.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Projectile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Timer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SoundLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\SoundLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SoundLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\SoundLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +176,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,7 +196,383 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Turret.cpp",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 9\\Turret.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 9\\Turret.cpp",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 9\\Turret.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 9\\Turret.cpp",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAqwIgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T20:04:39.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "SoundLoader.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SoundLoader.h",
+              "RelativeDocumentMoniker": "tower-defense\\SoundLoader.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SoundLoader.h",
+              "RelativeToolTip": "tower-defense\\SoundLoader.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T19:30:26.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "SoundLoader.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SoundLoader.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\SoundLoader.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SoundLoader.cpp",
+              "RelativeToolTip": "tower-defense\\SoundLoader.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T19:30:19.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Unit.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Unit.h",
+              "RelativeDocumentMoniker": "tower-defense\\Unit.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Unit.h",
+              "RelativeToolTip": "tower-defense\\Unit.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T18:17:17.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\main.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\main.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\main.cpp",
+              "RelativeToolTip": "tower-defense\\main.cpp",
+              "ViewState": "AgIAADUAAAAAAAAAAAAqwE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T19:07:50.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\main.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\main.cpp",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\main.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\main.cpp",
+              "ViewState": "AgIAACMAAAAAAAAAAAAqwDwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T19:07:45.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Unit.cpp",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Unit.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Unit.cpp",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Unit.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Unit.cpp",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAqwIQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T19:05:25.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "Timer.cpp",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Timer.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Timer.cpp",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Timer.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Timer.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T19:05:00.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Turret.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Turret.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\Turret.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Turret.cpp",
+              "RelativeToolTip": "tower-defense\\Turret.cpp",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAqwIgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T18:19:08.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Projectile.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Projectile.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\Projectile.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Projectile.cpp",
+              "RelativeToolTip": "tower-defense\\Projectile.cpp",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T18:13:45.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.h",
+              "RelativeDocumentMoniker": "tower-defense\\Game.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.h",
+              "RelativeToolTip": "tower-defense\\Game.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T18:14:33.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Turret.h",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Turret.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Turret.h",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Turret.h",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Turret.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T19:04:57.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Timer.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Timer.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\Timer.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Timer.cpp",
+              "RelativeToolTip": "tower-defense\\Timer.cpp",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T19:03:50.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Projectile.h",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Projectile.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Projectile.h",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Projectile.h",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Projectile.h",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA0AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T19:04:09.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Level.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.h",
+              "RelativeDocumentMoniker": "tower-defense\\Level.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.h",
+              "RelativeToolTip": "tower-defense\\Level.h",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T19:03:27.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Level.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\Level.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.cpp",
+              "RelativeToolTip": "tower-defense\\Level.cpp",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T19:03:17.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Turret.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Turret.h",
+              "RelativeDocumentMoniker": "tower-defense\\Turret.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Turret.h",
+              "RelativeToolTip": "tower-defense\\Turret.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T18:19:23.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Unit.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Unit.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\Unit.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Unit.cpp",
+              "RelativeToolTip": "tower-defense\\Unit.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwGcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T18:17:21.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GameConfig.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\GameConfig.h",
+              "RelativeDocumentMoniker": "tower-defense\\GameConfig.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\GameConfig.h",
+              "RelativeToolTip": "tower-defense\\GameConfig.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T19:02:25.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Projectile.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Projectile.h",
+              "RelativeDocumentMoniker": "tower-defense\\Projectile.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Projectile.h",
+              "RelativeToolTip": "tower-defense\\Projectile.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T18:11:30.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Game.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Game.cpp",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Game.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 8\\Game.cpp",
+              "ViewState": "AgIAAO8AAAAAAAAAAAAqwAgBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T19:01:49.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Timer.h",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Timer.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Timer.h",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Timer.h",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Timer.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T18:34:45.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.cpp",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.cpp",
+              "ViewState": "AgIAAO8AAAAAAAAAAAAqwAgBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T18:33:53.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.h",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.h",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Game.h",
+              "ViewState": "AgIAABsAAAAAAAAAAAAqwDQAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T18:36:03.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Turret.cpp",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.cpp",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.cpp",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAqwIMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T18:35:50.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Turret.h",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.h",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.h",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Turret.h",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T18:35:01.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Timer.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Timer.h",
+              "RelativeDocumentMoniker": "tower-defense\\Timer.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Timer.h",
+              "RelativeToolTip": "tower-defense\\Timer.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T18:29:50.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\Game.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.cpp",
+              "RelativeToolTip": "tower-defense\\Game.cpp",
+              "ViewState": "AgIAALIAAAAAAAAAAAAqwAEBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T18:15:32.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Projectile.cpp",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.cpp",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAqwC4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T18:13:37.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Projectile.h",
+              "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.h",
+              "ToolTip": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.h",
+              "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 7\\Projectile.h",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAqwBoAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T18:12:36.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
               "Title": "Timer.cpp",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Timer.cpp",
               "RelativeDocumentMoniker": "tower-defense\\src\\Timer.cpp",
@@ -98,12 +580,11 @@
               "RelativeToolTip": "tower-defense\\src\\Timer.cpp",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-16T07:17:05.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T07:17:05.022Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 29,
               "Title": "Timer.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\headers\\Timer.h",
               "RelativeDocumentMoniker": "tower-defense\\headers\\Timer.h",
@@ -111,12 +592,11 @@
               "RelativeToolTip": "tower-defense\\headers\\Timer.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-16T07:15:33.205Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T07:15:33.205Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 36,
               "Title": "Unit.h",
               "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Unit.h",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Unit.h",
@@ -124,11 +604,12 @@
               "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Unit.h",
               "ViewState": "AgIAAAUAAAAAAAAAAAAqwB4AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-16T07:11:35.143Z"
+              "WhenOpened": "2026-06-16T07:11:35.143Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 37,
               "Title": "Timer.h",
               "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Timer.h",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Timer.h",
@@ -136,24 +617,23 @@
               "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Timer.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-16T07:10:46.082Z"
+              "WhenOpened": "2026-06-16T07:10:46.082Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 23,
               "Title": "Turret.cpp",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Turret.cpp",
               "RelativeDocumentMoniker": "tower-defense\\src\\Turret.cpp",
               "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Turret.cpp",
               "RelativeToolTip": "tower-defense\\src\\Turret.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-16T07:06:51.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T07:06:51.318Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 30,
               "Title": "Unit.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\headers\\Unit.h",
               "RelativeDocumentMoniker": "tower-defense\\headers\\Unit.h",
@@ -161,12 +641,11 @@
               "RelativeToolTip": "tower-defense\\headers\\Unit.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-16T07:01:32.933Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T07:01:32.933Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 31,
               "Title": "Game.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\headers\\Game.h",
               "RelativeDocumentMoniker": "tower-defense\\headers\\Game.h",
@@ -174,12 +653,11 @@
               "RelativeToolTip": "tower-defense\\headers\\Game.h",
               "ViewState": "AgIAABYAAAAAAAAAAAAqwC0AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-16T06:58:20.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T06:58:20.208Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 26,
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Game.cpp",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Game.cpp",
@@ -192,7 +670,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 25,
               "Title": "Turret.cpp",
               "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Turret.cpp",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Turret.cpp",
@@ -205,7 +683,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 38,
               "Title": "Turret.h",
               "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Turret.h",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Turret.h",
@@ -213,11 +691,12 @@
               "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Turret.h",
               "ViewState": "AgIAAAoAAAAAAAAAAAAqwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-16T07:10:48.628Z"
+              "WhenOpened": "2026-06-16T07:10:48.628Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 32,
               "Title": "Turret.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\headers\\Turret.h",
               "RelativeDocumentMoniker": "tower-defense\\headers\\Turret.h",
@@ -225,12 +704,11 @@
               "RelativeToolTip": "tower-defense\\headers\\Turret.h",
               "ViewState": "AgIAAAoAAAAAAAAAAAAqwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-16T07:07:03.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T07:07:03.679Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 24,
               "Title": "Unit.cpp",
               "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Unit.cpp",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Unit.cpp",
@@ -243,7 +721,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 33,
               "Title": "Unit.cpp",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Unit.cpp",
               "RelativeDocumentMoniker": "tower-defense\\src\\Unit.cpp",
@@ -251,12 +729,11 @@
               "RelativeToolTip": "tower-defense\\src\\Unit.cpp",
               "ViewState": "AgIAAFAAAAAAAAAAAAAqwFIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-16T07:01:59.199Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T07:01:59.199Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 39,
               "Title": "Game.h",
               "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Game.h",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Game.h",
@@ -264,11 +741,12 @@
               "RelativeToolTip": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Game.h",
               "ViewState": "AgIAABgAAAAAAAAAAAAqwDEAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-16T07:15:11.664Z"
+              "WhenOpened": "2026-06-16T07:15:11.664Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 34,
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Game.cpp",
               "RelativeDocumentMoniker": "tower-defense\\src\\Game.cpp",
@@ -276,12 +754,11 @@
               "RelativeToolTip": "tower-defense\\src\\Game.cpp",
               "ViewState": "AgIAAM8AAAAAAAAAAAAqwOMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-16T06:59:19.527Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T06:59:19.527Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 27,
               "Title": "Timer.cpp",
               "DocumentMoniker": "C:\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Timer.cpp",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Users\\inna-a\\Downloads\\Tower Base Defense Game v1.9.1\\Part 6\\Timer.cpp",
@@ -294,7 +771,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 35,
               "Title": "GameConfig.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\headers\\GameConfig.h",
               "RelativeDocumentMoniker": "tower-defense\\headers\\GameConfig.h",
@@ -302,8 +779,7 @@
               "RelativeToolTip": "tower-defense\\headers\\GameConfig.h",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-16T06:58:12.127Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T06:58:12.127Z"
             }
           ]
         }

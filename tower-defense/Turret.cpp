@@ -2,6 +2,7 @@
 #include "Unit.h"
 #include "Timer.h"
 #include "GameConfig.h"
+#include "SoundLoader.h"
 
 const float Turret::speedAngular = MathUtils::angleDegToRad(GameConfig::TURRET_ROTATION_SPEED_DEG);
 const float Turret::weaponRange = GameConfig::TURRET_WEAPON_RANGE;
@@ -10,6 +11,7 @@ Turret::Turret(SDL_Renderer* renderer, Vector2D setPos) :
 	pos(setPos), angle(0.0f), timerWeapon(GameConfig::TURRET_WEAPON_COOLDOWN_S) {
 	textureMain = TextureLoader::loadTexture(renderer, "Turret.bmp");
 	textureShadow = TextureLoader::loadTexture(renderer, "Turret Shadow.bmp");
+	mix_ChunkShoot = SoundLoader::loadSound("Turret Shoot.ogg");
 }
 
 void Turret::update(SDL_Renderer* renderer, float dT, std::vector<std::shared_ptr<Unit>>& listUnits,
@@ -66,6 +68,11 @@ void Turret::shootProjectile(SDL_Renderer* renderer, std::vector<Projectile>& li
 	//Shoot a projectile towards the target unit if the weapon timer is ready.
 	if (timerWeapon.timeSIsZero()) {
 		listProjectiles.push_back(Projectile(renderer, pos, Vector2D(angle)));
+
+		//Play the shoot sound.
+		if (mix_ChunkShoot != nullptr)
+			Mix_PlayChannel(-1, mix_ChunkShoot, 0);
+
 		timerWeapon.resetToMax();
 	}
 }
