@@ -74,7 +74,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)headers;C:\SDL2-2.26.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);C:\SDL2-2.26.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -96,7 +96,7 @@ xcopy /Y /E /I /D "$(ProjectDir)assets" "$(OutDir)assets"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)headers;C:\SDL2-2.26.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);C:\SDL2-2.26.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,7 +118,7 @@ xcopy /Y /E /I /D "$(ProjectDir)assets" "$(OutDir)assets"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)headers;C:\SDL2-2.26.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);C:\SDL2-2.26.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,7 +140,7 @@ xcopy /Y /E /I /D "$(ProjectDir)assets" "$(OutDir)assets"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)headers;C:\SDL2-2.26.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);C:\SDL2-2.26.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,26 +157,26 @@ xcopy /Y /E /I /D "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\Level.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\MathUtils.cpp" />
-    <ClCompile Include="src\Timer.cpp" />
-    <ClCompile Include="src\TextureLoader.cpp" />
-    <ClCompile Include="src\Turret.cpp" />
-    <ClCompile Include="src\Unit.cpp" />
-    <ClCompile Include="src\Vector2D.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MathUtils.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TextureLoader.cpp" />
+    <ClCompile Include="Turret.cpp" />
+    <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\GameConfig.h" />
-    <ClInclude Include="headers\Game.h" />
-    <ClInclude Include="headers\Level.h" />
-    <ClInclude Include="headers\MathUtils.h" />
-    <ClInclude Include="headers\Timer.h" />
-    <ClInclude Include="headers\TextureLoader.h" />
-    <ClInclude Include="headers\Turret.h" />
-    <ClInclude Include="headers\Unit.h" />
-    <ClInclude Include="headers\Vector2D.h" />
+    <ClInclude Include="GameConfig.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="MathUtils.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="TextureLoader.h" />
+    <ClInclude Include="Turret.h" />
+    <ClInclude Include="Unit.h" />
+    <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />

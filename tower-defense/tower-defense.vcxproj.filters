@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="src">
+    <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers">
+    <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
     </Filter>
     <Filter Include="assets">
@@ -12,61 +12,61 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Level.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MathUtils.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="MathUtils.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Timer.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextureLoader.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Turret.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="Turret.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Unit.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vector2D.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\GameConfig.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="GameConfig.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Game.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Level.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\MathUtils.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="MathUtils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Timer.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\TextureLoader.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Turret.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="Turret.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Unit.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="Unit.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Vector2D.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="Vector2D.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
