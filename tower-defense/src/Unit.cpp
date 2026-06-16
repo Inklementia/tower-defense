@@ -1,5 +1,6 @@
 #include "Unit.h"
 #include "GameConfig.h"
+#include "Game.h"
 
 const float Unit::speed = GameConfig::UNIT_SPEED;
 const float Unit::size = GameConfig::UNIT_SIZE;
@@ -7,9 +8,10 @@ const float Unit::size = GameConfig::UNIT_SIZE;
 Unit::Unit(SDL_Renderer* renderer, Vector2D setPos) :
 	pos(setPos) {
 	texture = TextureLoader::loadTexture(renderer, "Unit.bmp");
+
 }
 
-void Unit::update(float dT, Level& level, std::vector<Unit>& listUnits) {
+void Unit::update(float dT, Level& level, std::vector<std::shared_ptr<Unit>>& listUnits) {
 	//Determine the distance to the target from the unit's current position.
 	float distanceToTarget = (level.getTargetPos() - pos).magnitude();
 
@@ -34,16 +36,19 @@ void Unit::update(float dT, Level& level, std::vector<Unit>& listUnits) {
 		bool moveOk = true;
 		for (int count = 0; count < listUnits.size() && moveOk; count++) {
 			auto& unitSelected = listUnits[count];
-			if (&unitSelected != this && unitSelected.checkOverlap(pos, size)) {
-				//They overlap so check and see if this unit is moving towards or away from the unit it overlaps.
-				Vector2D directionToOther = (unitSelected.pos - pos);
+			if (unitSelected != nullptr && unitSelected.get() != this &&
+				unitSelected->checkOverlap(pos, size)) {
+				//They overlap so check and see if this unit is moving towards or away 
+				//from the unit it overlaps.
+				Vector2D directionToOther = (unitSelected->pos - pos);
 				//Ensure that they're not directly on top of each other.
-				if (directionToOther.magnitude() > GameConfig::UNIT_OVERLAP_MIN_DISTANCE) {
-					//Check the angle between the units positions and the direction that this unit is traveling.
-					//Ensure that this unit isn't moving directly towards the other unit (by checking the angle between).
+				if (directionToOther.magnitude() > 0.01f) {
+					//Check the angle between the units positions and the direction that this unit 
+					//is traveling.  Ensure that this unit isn't moving directly towards the other 
+					//unit (by checking the angle between).
 					Vector2D normalToOther(directionToOther.normalize());
 					float angleBtw = abs(normalToOther.angleBetween(directionNormal));
-					if (angleBtw < GameConfig::UNIT_COLLISION_ANGLE)
+					if (angleBtw < 3.14159265359f / 4.0f)
 						//Don't allow the move.
 						moveOk = false;
 				}
@@ -53,7 +58,7 @@ void Unit::update(float dT, Level& level, std::vector<Unit>& listUnits) {
 		if (moveOk) {
 			//Check if it needs to move in the x direction.  If so then check if the new x position, plus an amount of spacing 
 			//(to keep from moving too close to the wall) is within a wall or not and update the position as required.
-			const float spacing = GameConfig::UNIT_WALL_SPACING;
+			const float spacing = 0.35f;
 			int x = (int)(pos.x + posAdd.x + copysign(spacing, posAdd.x));
 			int y = (int)(pos.y);
 			if (posAdd.x != 0.0f && level.isTileWall(x, y) == false)
@@ -70,7 +75,7 @@ void Unit::update(float dT, Level& level, std::vector<Unit>& listUnits) {
 
 void Unit::draw(SDL_Renderer* renderer, int tileSize) {
 	if (renderer != nullptr) {
-		//Draw a rectangle at the unit's position.
+		//Draw the image at the unit's position.
 		int w, h;
 		SDL_QueryTexture(texture, NULL, NULL, &w, &h);
 		SDL_Rect rect = {
@@ -88,4 +93,8 @@ bool Unit::checkOverlap(Vector2D posOther, float sizeOther) {
 
 bool Unit::getIsAlive() {
 	return isAlive;
+}
+
+Vector2D Unit::getPos() {
+	return pos;
 }

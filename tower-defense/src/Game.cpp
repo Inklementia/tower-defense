@@ -124,22 +124,35 @@ void Game::processEvents(SDL_Renderer* renderer, bool& running) {
 
 void Game::update(SDL_Renderer* renderer, float dT) {
     //Update the units.
-    for (auto it = listUnits.begin(); it != listUnits.end();) {
-        (*it).update(dT, level, listUnits);
+    updateUnits(dT);
 
-        //is alive?
-        if ((*it).getIsAlive() == false)
-            it = listUnits.erase(it);
-        else
-            it++;
-    }
-    //Update turrets
+    //Update the turrets.
     for (auto& turretSelected : listTurrets)
-        turretSelected.update(dT);
-    
+        turretSelected.update(dT, listUnits);
+
     updateSpawnUnitsIfRequired(renderer, dT);
 }
 
+void Game::updateUnits(float dT) {
+    //Loop through the list of units and update all of them.
+    auto it = listUnits.begin();
+    while (it != listUnits.end()) {
+        bool increment = true;
+
+        if ((*it) != nullptr) {
+            (*it)->update(dT, level, listUnits);
+
+            //Check if the unit is still alive.  If not then erase it and don't increment the iterator.
+            if ((*it)->getIsAlive() == false) {
+                it = listUnits.erase(it);
+                increment = false;
+            }
+        }
+
+        if (increment)
+            it++;
+    }
+}
 void Game::updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT) {
     spawnTimer.countDown(dT);
 
@@ -177,7 +190,8 @@ void Game::draw(SDL_Renderer* renderer) {
 
     //Draw the enemy units.
     for (auto& unitSelected : listUnits)
-        unitSelected.draw(renderer, GameConfig::TILE_SIZE);
+        if (unitSelected != nullptr)
+            unitSelected->draw(renderer, GameConfig::TILE_SIZE);
 
     //Draw turrets
     for (auto& turretSelected : listTurrets)
@@ -196,7 +210,7 @@ void Game::draw(SDL_Renderer* renderer) {
 }
 
 void Game::addUnit(SDL_Renderer* renderer, Vector2D posMouse) {
-    listUnits.push_back(Unit(renderer, posMouse));
+    listUnits.push_back(std::make_shared<Unit>(renderer, posMouse));
 }
 
 void Game::addTurret(SDL_Renderer* renderer, Vector2D posMouse) {

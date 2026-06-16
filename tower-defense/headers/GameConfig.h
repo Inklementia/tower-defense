@@ -29,6 +29,10 @@ namespace GameConfig {
 	constexpr float PI = 3.14159265359f;
 	constexpr float UNIT_COLLISION_ANGLE = PI / 4.0f;
 
+	// Turrets
+	constexpr float TURRET_ROTATION_SPEED_DEG = 180.0f;
+	constexpr float TURRET_WEAPON_RANGE = 5.0f;
+
 	// Level / flow field
 	constexpr unsigned char FLOW_DISTANCE_MAX = 255;
 

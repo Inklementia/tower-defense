@@ -24,6 +24,7 @@ public:
 private:
 	void processEvents(SDL_Renderer* renderer, bool& running);
 	void update(SDL_Renderer* renderer, float dT);
+	void updateUnits(float dT);
 	void updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT);
 	void draw(SDL_Renderer* renderer);
 	void addUnit(SDL_Renderer* renderer, Vector2D posMouse);
@@ -34,7 +35,7 @@ private:
 
 	Level level;
 	
-	std::vector<Unit> listUnits;
+	std::vector<std::shared_ptr<Unit>> listUnits;
 	std::vector<Turret> listTurrets;
 
 	SDL_Texture* textureOverlay = nullptr;

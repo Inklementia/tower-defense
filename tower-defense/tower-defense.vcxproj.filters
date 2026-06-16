@@ -21,10 +21,16 @@
     <ClCompile Include="src\Level.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\MathUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\Timer.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\TextureLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Turret.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Unit.cpp">
@@ -44,10 +50,16 @@
     <ClInclude Include="headers\Level.h">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="headers\MathUtils.h">
+      <Filter>headers</Filter>
+    </ClInclude>
     <ClInclude Include="headers\Timer.h">
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="headers\TextureLoader.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Turret.h">
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="headers\Unit.h">
