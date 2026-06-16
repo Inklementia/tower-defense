@@ -160,7 +160,7 @@ xcopy /Y /E /I /D "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\TextRenderer.cpp" />
+    <ClCompile Include="src\Timer.cpp" />
     <ClCompile Include="src\TextureLoader.cpp" />
     <ClCompile Include="src\Unit.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
@@ -169,7 +169,7 @@ xcopy /Y /E /I /D "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClInclude Include="headers\GameConfig.h" />
     <ClInclude Include="headers\Game.h" />
     <ClInclude Include="headers\Level.h" />
-    <ClInclude Include="headers\TextRenderer.h" />
+    <ClInclude Include="headers\Timer.h" />
     <ClInclude Include="headers\TextureLoader.h" />
     <ClInclude Include="headers\Unit.h" />
     <ClInclude Include="headers\Vector2D.h" />

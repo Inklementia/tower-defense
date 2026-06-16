@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\work\\personal\\cpp\\tower-defense\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Level.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\src\\Level.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\headers\\Level.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\headers\\Level.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Unit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\src\\Unit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EA8263E4-20D4-45ED-94AB-2A1B837F8E86}|tower-defense\\tower-defense.vcxproj|solutionrelative:tower-defense\\src\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tower-defense\\Level.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -50,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +86,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Unit.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Unit.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\src\\Unit.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Unit.cpp",
+              "RelativeToolTip": "tower-defense\\src\\Unit.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T04:40:24.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Level.h",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\headers\\Level.h",
+              "RelativeDocumentMoniker": "tower-defense\\headers\\Level.h",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\headers\\Level.h",
+              "RelativeToolTip": "tower-defense\\headers\\Level.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-16T04:38:37.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Level.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Level.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\src\\Level.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Level.cpp",
+              "RelativeToolTip": "tower-defense\\src\\Level.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T04:38:34.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Game.cpp",
+              "RelativeDocumentMoniker": "tower-defense\\src\\Game.cpp",
+              "ToolTip": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\src\\Game.cpp",
+              "RelativeToolTip": "tower-defense\\src\\Game.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-16T04:37:49.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Level.cpp",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.cpp",
               "RelativeDocumentMoniker": "tower-defense\\Level.cpp",
@@ -81,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "SDL2_image.dll",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\SDL2_image.dll",
               "RelativeDocumentMoniker": "tower-defense\\SDL2_image.dll",
@@ -92,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "TextureManager.cpp",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureManager.cpp",
               "RelativeDocumentMoniker": "tower-defense\\TextureManager.cpp",
@@ -104,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "TextureManager.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureManager.h",
               "RelativeDocumentMoniker": "tower-defense\\TextureManager.h",
@@ -116,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Unit.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Unit.h",
               "RelativeDocumentMoniker": "tower-defense\\Unit.h",
@@ -128,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Level.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Level.h",
               "RelativeDocumentMoniker": "tower-defense\\Level.h",
@@ -140,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "TextureLoader.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\TextureLoader.h",
               "RelativeDocumentMoniker": "tower-defense\\TextureLoader.h",
@@ -152,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\main.cpp",
               "RelativeDocumentMoniker": "tower-defense\\main.cpp",
@@ -164,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "Game.h",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.h",
               "RelativeDocumentMoniker": "tower-defense\\Game.h",
@@ -176,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\work\\personal\\cpp\\tower-defense\\tower-defense\\Game.cpp",
               "RelativeDocumentMoniker": "tower-defense\\Game.cpp",

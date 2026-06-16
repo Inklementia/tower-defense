@@ -1,11 +1,11 @@
 #include "Level.h"
-#include "TextRenderer.h"
 
 Level::Level(SDL_Renderer* renderer, int setTileCountX, int setTileCountY) :
     tileCountX(setTileCountX), tileCountY(setTileCountY),
     targetX(setTileCountX / 2), targetY(setTileCountY / 2) {
     textureTileWall = TextureLoader::loadTexture(renderer, "Tile Wall.bmp");
     textureTileTarget = TextureLoader::loadTexture(renderer, "Tile Target.bmp");
+    textureTileEnemySpawner = TextureLoader::loadTexture(renderer, "Tile Enemy Spawner.bmp");
 
     textureTileEmpty = TextureLoader::loadTexture(renderer, "Tile Empty.bmp");
     textureTileArrowUp = TextureLoader::loadTexture(renderer, "Tile Arrow Up.bmp");
@@ -20,13 +20,43 @@ Level::Level(SDL_Renderer* renderer, int setTileCountX, int setTileCountY) :
     size_t listTilesSize = (size_t)tileCountX * tileCountY;
     listTiles.assign(listTilesSize, Tile{});
 
+    //Add an enemy spawner at each corner.
+    int xMax = tileCountX - 1;
+    int yMax = tileCountY - 1;
+    setTileType(0, 0, TileType::enemySpawner);
+    setTileType(xMax, 0, TileType::enemySpawner);
+    setTileType(0, yMax, TileType::enemySpawner);
+    setTileType(xMax, yMax, TileType::enemySpawner);
+
     calculateFlowField();
 }
 
 void Level::draw(SDL_Renderer* renderer, int tileSize) {
+    //Draw the tile's background color.
+    for (int y = 0; y < tileCountY; y++) {
+        for (int x = 0; x < tileCountX; x++) {
+            if ((x + y) % 2 == 0)
+                SDL_SetRenderDrawColor(renderer, 240, 240, 240, 255);
+            else
+                SDL_SetRenderDrawColor(renderer, 225, 225, 225, 255);
+
+            SDL_Rect rect = { x * tileSize, y * tileSize, tileSize, tileSize };
+            SDL_RenderFillRect(renderer, &rect);
+        }
+    }
     //Draw the arrow (and empty) tiles.
-    for (int count = 0; count < listTiles.size(); count++)
-        drawTile(renderer, (count % tileCountX), (count / tileCountY), tileSize);
+    //for (int count = 0; count < listTiles.size(); count++)
+    //    drawTile(renderer, (count % tileCountX), (count / tileCountX), tileSize);
+    
+    //Draw the enemy spawner tiles.
+    for (int y = 0; y < tileCountY; y++) {
+        for (int x = 0; x < tileCountX; x++) {
+            if (getTileType(x, y) == TileType::enemySpawner) {
+                SDL_Rect rect = { x * tileSize, y * tileSize, tileSize, tileSize };
+                SDL_RenderCopy(renderer, textureTileEnemySpawner, NULL, &rect);
+            }
+        }
+    }
 
     //Draw the target tile.
     if (textureTileTarget != nullptr) {
@@ -38,14 +68,18 @@ void Level::draw(SDL_Renderer* renderer, int tileSize) {
     for (int y = 0; y < tileCountY; y++) {
         for (int x = 0; x < tileCountX; x++) {
             if (isTileWall(x, y)) {
-                SDL_Rect rect = { x * tileSize, y * tileSize, tileSize, tileSize };
+                int w, h;
+                SDL_QueryTexture(textureTileWall, NULL, NULL, &w, &h);
+                SDL_Rect rect = {
+                    x * tileSize + tileSize / 2 - w / 2,
+                    y * tileSize + tileSize / 2 - h / 2,
+                    w,
+                    h };
                 SDL_RenderCopy(renderer, textureTileWall, NULL, &rect);
             }
         }
     }
 }
-
-
 
 void Level::drawTile(SDL_Renderer* renderer, int x, int y, int tileSize) {
     //Set the default texture image to be empty.
@@ -84,28 +118,57 @@ void Level::drawTile(SDL_Renderer* renderer, int x, int y, int tileSize) {
     }
 }
 
-bool Level::isTileWall(int x, int y) {
-    int index = x + y * tileCountX;
-    if (index > -1 && index < listTiles.size() && 
-        x > -1 && x < tileCountX &&
-        y > -1 && y < tileCountY)
-        return listTiles[index].isWall;
+Vector2D Level::getRandomEnemySpawnerLocation() {
+    //Create a list of all tiles that are enemy spawners.
+    std::vector<int> listSpawnerIndices;
+    for (int count = 0; count < listTiles.size(); count++) {
+        auto& tileSelected = listTiles[count];
+        if (tileSelected.type == TileType::enemySpawner)
+            listSpawnerIndices.push_back(count);
+    }
 
-    return false;
+    //If one or more spawners are found, pick one at random and output it's center position.
+    if (listSpawnerIndices.empty() == false) {
+        int index = listSpawnerIndices[rand() % listSpawnerIndices.size()];
+        return Vector2D((float)(index % tileCountX) + GameConfig::TILE_CENTER_OFFSET,
+            (float)(index / tileCountX) + GameConfig::TILE_CENTER_OFFSET);
+    }
+
+    return Vector2D(GameConfig::TILE_CENTER_OFFSET, GameConfig::TILE_CENTER_OFFSET);
+}
+
+bool Level::isTileWall(int x, int y) {
+    return (getTileType(x, y) == TileType::wall);
 }
 
 void Level::setTileWall(int x, int y, bool setWall) {
+    if (getTileType(x, y) != TileType::enemySpawner)
+        setTileType(x, y, (setWall ? TileType::wall : TileType::empty));
+}
+
+Level::TileType Level::getTileType(int x, int y) {
+    int index = x + y * tileCountX;
+    if (index > -1 && index < listTiles.size() &&
+        x > -1 && x < tileCountX &&
+        y > -1 && y < tileCountY)
+        return listTiles[index].type;
+
+    return TileType::empty;
+}
+
+void Level::setTileType(int x, int y, TileType tileType) {
     int index = x + y * tileCountX;
     if (index > -1 && index < listTiles.size() &&
         x > -1 && x < tileCountX &&
         y > -1 && y < tileCountY) {
-        listTiles[index].isWall = setWall;
+        listTiles[index].type = tileType;
         calculateFlowField();
     }
 }
 
 Vector2D Level::getTargetPos() {
-    return Vector2D((float)targetX + 0.5f, (float)targetY + 0.5f);
+    return Vector2D((float)targetX + GameConfig::TILE_CENTER_OFFSET,
+        (float)targetY + GameConfig::TILE_CENTER_OFFSET);
 }
 
 void Level::calculateFlowField() {
@@ -155,7 +218,7 @@ void Level::calculateDistances() {
             if (indexNeighbor > -1 && indexNeighbor < listTiles.size() && 
                 neighborX > -1 && neighborX < tileCountX &&
                 neighborY > -1 && neighborY < tileCountY &&
-                listTiles[indexNeighbor].isWall == false) {
+                listTiles[indexNeighbor].type != TileType::wall) {
 
                 //Check if the tile has been assigned a distance yet or not.
                 if (listTiles[indexNeighbor].flowDistance == flowDistanceMax) {

@@ -2,62 +2,43 @@
 #include "SDL.h"
 #include "GameConfig.h"
 #include "Game.h"
-#include "TextRenderer.h"
 
 int main(int argc, char* args[]) {
-	//Seed the random number generator with the current time so that it will generate different 
-	//numbers every time the game is run.
 	srand((unsigned)time(NULL));
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		std::cout << "Error: Couldn't initialize SDL Video = " << SDL_GetError() << std::endl;
 		return 1;
 	}
-	else {
-		//Create the window.
-		SDL_Window* window = SDL_CreateWindow("Tower Base Defense",
-			SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-			GameConfig::WINDOW_WIDTH, GameConfig::WINDOW_HEIGHT, 0);
-		if (window == nullptr) {
-			std::cout << "Error: Couldn't create window = " << SDL_GetError() << std::endl;
-			return 1;
-		}
-		else {
-			//Create a renderer for GPU accelerated drawing.
-			SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED |
-				SDL_RENDERER_PRESENTVSYNC);
-			if (renderer == nullptr) {
-				std::cout << "Error: Couldn't create renderer = " << SDL_GetError() << std::endl;
-				return 1;
-			}
-			else {
-				//Ensure transparent graphics are drawn correctly.
-				SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
-				if (!TextRenderer::init()) {
-					std::cout << "Warning: couldn't init text renderer" << std::endl;
-				}
-
-				//Output the name of the render driver.
-				SDL_RendererInfo rendererInfo;
-				SDL_GetRendererInfo(renderer, &rendererInfo);
-				std::cout << "Renderer = " << rendererInfo.name << std::endl;
-
-				//Start the game.
-				Game game(window, renderer);
-
-				TextRenderer::quit();
-
-				//Clean up.
-				SDL_DestroyRenderer(renderer);
-			}
-
-			//Clean up.
-			SDL_DestroyWindow(window);
-		}
-
-		//Clean up.
+	SDL_Window* window = SDL_CreateWindow("Tower Base Defense",
+		SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+		GameConfig::WINDOW_WIDTH, GameConfig::WINDOW_HEIGHT, 0);
+	if (window == nullptr) {
+		std::cout << "Error: Couldn't create window = " << SDL_GetError() << std::endl;
 		SDL_Quit();
+		return 1;
 	}
+
+	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED |
+		SDL_RENDERER_PRESENTVSYNC);
+	if (renderer == nullptr) {
+		std::cout << "Error: Couldn't create renderer = " << SDL_GetError() << std::endl;
+		SDL_DestroyWindow(window);
+		SDL_Quit();
+		return 1;
+	}
+
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+
+	SDL_RendererInfo rendererInfo;
+	SDL_GetRendererInfo(renderer, &rendererInfo);
+	std::cout << "Renderer = " << rendererInfo.name << std::endl;
+
+	Game game(window, renderer);
+
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
 	return 0;
 }

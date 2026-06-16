@@ -5,14 +5,21 @@
 #include "SDL.h"
 #include "Vector2D.h"
 #include "TextureLoader.h"
+#include "GameConfig.h"
 
 class Level
 {
 private:
-	static const unsigned char flowDistanceMax = 255;
+	enum class TileType : char {
+		empty,
+		wall,
+		enemySpawner
+	};
+
+	static const unsigned char flowDistanceMax = GameConfig::FLOW_DISTANCE_MAX;
 
 	struct Tile {
-		bool isWall = false;
+		TileType type = TileType::empty;
 		int flowDirectionX = 0;
 		int flowDirectionY = 0;
 		unsigned char flowDistance = flowDistanceMax;
@@ -23,6 +30,7 @@ public:
 	Level(SDL_Renderer* renderer, int setTileCountX, int setTileCountY);
 	void draw(SDL_Renderer* renderer, int tileSize);
 
+	Vector2D getRandomEnemySpawnerLocation();
 	bool isTileWall(int x, int y);
 	void setTileWall(int x, int y, bool setWall);
 	Vector2D getTargetPos();
@@ -30,6 +38,8 @@ public:
 
 
 private:
+	TileType getTileType(int x, int y);
+	void setTileType(int x, int y, TileType tileType);
 	void drawTile(SDL_Renderer* renderer, int x, int y, int tileSize);
 	void calculateFlowField();
 	void calculateDistances();
@@ -43,6 +53,7 @@ private:
 
 	SDL_Texture* textureTileWall = nullptr,
 		*textureTileTarget = nullptr,
+		*textureTileEnemySpawner = nullptr,
 		*textureTileEmpty = nullptr,
 		*textureTileArrowUp = nullptr,
 		*textureTileArrowUpRight = nullptr,

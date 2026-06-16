@@ -1,8 +1,9 @@
 #include "Game.h"
 
 Game::Game(SDL_Window* window, SDL_Renderer* renderer) :
-    placementModeCurrent(PlacementMode::wall), 
-    level(renderer, GameConfig::TILE_COUNT_X, GameConfig::TILE_COUNT_Y) {
+    placementModeCurrent(PlacementMode::wall),
+    level(renderer, GameConfig::TILE_COUNT_X, GameConfig::TILE_COUNT_Y),
+    spawnTimer(GameConfig::SPAWN_INTERVAL_S), roundTimer(GameConfig::ROUND_DELAY_S) {
 
     //Run the game.
     if (window != nullptr && renderer != nullptr) {
@@ -14,7 +15,7 @@ Game::Game(SDL_Window* window, SDL_Renderer* renderer) :
         auto time2 = std::chrono::system_clock::now();
 
         //The amount of time for each frame (60 fps).
-        const float dT = 1.0f / 60.0f;
+        const float dT = GameConfig::FRAME_DT;
 
         //Start the game loop and run until it's time to stop.
         bool running = true;
@@ -30,7 +31,7 @@ Game::Game(SDL_Window* window, SDL_Renderer* renderer) :
                 time1 = time2;
 
                 processEvents(renderer, running);
-                update(dT);
+                update(renderer, dT);
                 draw(renderer);
             }
         }
@@ -124,7 +125,7 @@ void Game::processEvents(SDL_Renderer* renderer, bool& running) {
     }
 }
 
-void Game::update(float dT) {
+void Game::update(SDL_Renderer* renderer, float dT) {
     //Update the units.
     for (auto it = listUnits.begin(); it != listUnits.end();) {
         (*it).update(dT, level, listUnits);
@@ -135,12 +136,39 @@ void Game::update(float dT) {
         else
             it++;
     }
+
+    updateSpawnUnitsIfRequired(renderer, dT);
+}
+
+
+void Game::updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT) {
+    spawnTimer.countDown(dT);
+
+    //Check if the round needs to start.
+    if (listUnits.empty() && spawnUnitCount == 0) {
+        roundTimer.countDown(dT);
+        if (roundTimer.timeSIsZero()) {
+            spawnUnitCount = GameConfig::UNITS_PER_ROUND;
+            roundTimer.resetToMax();
+        }
+    }
+
+    //Add a unit if needed.
+    if (spawnUnitCount > 0 && spawnTimer.timeSIsZero()) {
+        addUnit(renderer, level.getRandomEnemySpawnerLocation());
+        spawnUnitCount--;
+        spawnTimer.resetToMax();
+    }
 }
 
 void Game::draw(SDL_Renderer* renderer) {
     //Draw.
     //Set the draw color to white.
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(renderer,
+        GameConfig::CLEAR_COLOR_R,
+        GameConfig::CLEAR_COLOR_G,
+        GameConfig::CLEAR_COLOR_B,
+        GameConfig::CLEAR_COLOR_A);
     //Clear the screen.
     SDL_RenderClear(renderer);
 
@@ -156,7 +184,7 @@ void Game::draw(SDL_Renderer* renderer) {
     if (textureOverlay != nullptr && overlayVisible) {
         int w = 0, h = 0;
         SDL_QueryTexture(textureOverlay, NULL, NULL, &w, &h);
-        SDL_Rect rect = { 40, 40, w, h };
+        SDL_Rect rect = { GameConfig::OVERLAY_X, GameConfig::OVERLAY_Y, w, h };
         SDL_RenderCopy(renderer, textureOverlay, NULL, &rect);
     }
 

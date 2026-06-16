@@ -4,6 +4,7 @@
 #include <chrono>
 #include <memory>
 #include "GameConfig.h"
+#include "Timer.h"
 #include "Unit.h"
 #include "Level.h"
 
@@ -20,7 +21,8 @@ public:
 
 private:
 	void processEvents(SDL_Renderer* renderer, bool& running);
-	void update(float dT);
+	void update(SDL_Renderer* renderer, float dT);
+	void updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT);
 	void draw(SDL_Renderer* renderer);
 	void addUnit(SDL_Renderer* renderer, Vector2D posMouse);
 	void removeUnitsAtMousePosition(Vector2D posMouse);
@@ -33,4 +35,7 @@ private:
 
 	SDL_Texture* textureOverlay = nullptr;
 	bool overlayVisible = true;
+
+	Timer spawnTimer, roundTimer;
+	int spawnUnitCount = 0;
 };
