@@ -1,4 +1,5 @@
 #pragma once
+#include "GameConfig.h"
 #include "SDL.h"
 #include <string>
 
@@ -23,6 +24,9 @@ public:
   static int measureTextWidth(const std::string &text, int fontSize = 16);
   static void drawPanel(SDL_Renderer *renderer, int x, int y, int w, int h,
                         UiColor color);
+  static void drawHudBox(SDL_Renderer *renderer, int x, int y, int w, int h,
+                         UiColor border);
+  static bool isSaveButtonAt(int x, int y);
   static void drawCheckerboard(SDL_Renderer *renderer, int width, int height,
                                int tileSize, UiColor light, UiColor dark);
 };

@@ -134,6 +134,17 @@ void HudRenderer::drawPanel(SDL_Renderer *renderer, int x, int y, int w, int h,
   SDL_RenderFillRect(renderer, &rect);
 }
 
+void HudRenderer::drawHudBox(SDL_Renderer *renderer, int x, int y, int w, int h,
+                             UiColor border) {
+  drawPanel(renderer, x, y, w, h, UiColor{24, 26, 34, 215});
+  drawPanel(renderer, x, y, w, 2, border);
+}
+
+bool HudRenderer::isSaveButtonAt(int x, int y) {
+  const int saveX = GameConfig::WINDOW_WIDTH - 10 - 148;
+  return x >= saveX && x <= saveX + 148 && y >= 10 && y <= 44;
+}
+
 void HudRenderer::drawCheckerboard(SDL_Renderer *renderer, int width,
                                    int height, int tileSize, UiColor light,
                                    UiColor dark) {

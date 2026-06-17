@@ -4,18 +4,6 @@
 #include "SoundLoader.h"
 #include <string>
 
-namespace {
-void drawHudBox(SDL_Renderer* renderer, int x, int y, int w, int h, UiColor border) {
-    HudRenderer::drawPanel(renderer, x, y, w, h, UiColor{24, 26, 34, 215});
-    HudRenderer::drawPanel(renderer, x, y, w, 2, border);
-}
-
-bool isSaveButtonAt(int x, int y) {
-    const int saveX = GameConfig::WINDOW_WIDTH - 10 - 148;
-    return x >= saveX && x <= saveX + 148 && y >= 10 && y <= 44;
-}
-}
-
 Game::Game(SDL_Renderer* setRenderer, const LevelSettings& settings) :
     renderer(setRenderer),
     placementModeCurrent(settings.creativeMode ? PlacementMode::wall :
@@ -140,7 +128,7 @@ void Game::processEvents(bool& running, GameRunResult& exitResult) {
     //Convert from the window's coordinate system to the game's coordinate system.
     Vector2D posMouse((float)mouseX / GameConfig::TILE_SIZE, (float)mouseY / GameConfig::TILE_SIZE);
 
-    if (levelSettings.creativeMode && isSaveButtonAt(mouseX, mouseY))
+    if (levelSettings.creativeMode && HudRenderer::isSaveButtonAt(mouseX, mouseY))
         return;
 
     if (mouseDownStatus > 0) {
@@ -190,7 +178,7 @@ void Game::processEvents(bool& running, GameRunResult& exitResult) {
 }
 
 void Game::handleHudClick(int mouseX, int mouseY) {
-    if (isSaveButtonAt(mouseX, mouseY))
+    if (HudRenderer::isSaveButtonAt(mouseX, mouseY))
         saveAsLevel1();
 }
 
@@ -394,7 +382,7 @@ void Game::drawHud(SDL_Renderer* renderer) {
             break;
         }
 
-        drawHudBox(renderer, 10, 10, 420, 48, UiColor{255, 196, 64, 255});
+        HudRenderer::drawHudBox(renderer, 10, 10, 420, 48, UiColor{255, 196, 64, 255});
         HudRenderer::drawText(renderer, 22, 18, "1 Wall", UiColor{150, 154, 168, 255}, 16);
         HudRenderer::drawText(renderer, 90, 18, "2 Turret", UiColor{150, 154, 168, 255}, 16);
         HudRenderer::drawText(renderer, 178, 18, "3 Spawner", UiColor{150, 154, 168, 255}, 16);
@@ -403,7 +391,7 @@ void Game::drawHud(SDL_Renderer* renderer) {
             UiColor{255, 196, 64, 255}, 16);
 
         const int saveX = GameConfig::WINDOW_WIDTH - 10 - 148;
-        drawHudBox(renderer, saveX, 10, 148, 34, UiColor{255, 196, 64, 255});
+        HudRenderer::drawHudBox(renderer, saveX, 10, 148, 34, UiColor{255, 196, 64, 255});
         HudRenderer::drawTextCentered(renderer, saveX + 74, 19, "Save Level 1",
             UiColor{235, 235, 240, 255}, 16);
 
@@ -411,7 +399,7 @@ void Game::drawHud(SDL_Renderer* renderer) {
             const int msgW = HudRenderer::measureTextWidth(saveMessage, 16) + 24;
             const int bx = (GameConfig::WINDOW_WIDTH - msgW) / 2;
             const int by = 66;
-            drawHudBox(renderer, bx, by, msgW, 34, UiColor{255, 196, 64, 255});
+            HudRenderer::drawHudBox(renderer, bx, by, msgW, 34, UiColor{255, 196, 64, 255});
             HudRenderer::drawTextCentered(renderer, GameConfig::WINDOW_WIDTH / 2, by + 9,
                 saveMessage, UiColor{96, 220, 120, 255}, 16);
         }
@@ -421,7 +409,7 @@ void Game::drawHud(SDL_Renderer* renderer) {
     if (matchState == MatchState::won) {
         const int boxW = HudRenderer::measureTextWidth("You Win!  Press any key", 24) + 48;
         const int bx = (GameConfig::WINDOW_WIDTH - boxW) / 2;
-        drawHudBox(renderer, bx, 10, boxW, 40, UiColor{96, 220, 120, 255});
+        HudRenderer::drawHudBox(renderer, bx, 10, boxW, 40, UiColor{96, 220, 120, 255});
         HudRenderer::drawTextCentered(renderer, GameConfig::WINDOW_WIDTH / 2, 20,
             "You Win!  Press any key", UiColor{96, 220, 120, 255}, 24);
         return;
@@ -429,7 +417,7 @@ void Game::drawHud(SDL_Renderer* renderer) {
     if (matchState == MatchState::lost) {
         const int boxW = HudRenderer::measureTextWidth("You Lose!  Press any key", 24) + 48;
         const int bx = (GameConfig::WINDOW_WIDTH - boxW) / 2;
-        drawHudBox(renderer, bx, 10, boxW, 40, UiColor{235, 55, 55, 255});
+        HudRenderer::drawHudBox(renderer, bx, 10, boxW, 40, UiColor{235, 55, 55, 255});
         HudRenderer::drawTextCentered(renderer, GameConfig::WINDOW_WIDTH / 2, 20,
             "You Lose!  Press any key", UiColor{235, 55, 55, 255}, 24);
         return;
@@ -444,7 +432,7 @@ void Game::drawHud(SDL_Renderer* renderer) {
     endX += 20 + HudRenderer::measureTextWidth("Escaped", 16) + 10;
     endX += HudRenderer::measureTextWidth(escapedText, 16);
 
-    drawHudBox(renderer, 10, 10, endX - 10 + 12, 34, UiColor{255, 196, 64, 255});
+    HudRenderer::drawHudBox(renderer, 10, 10, endX - 10 + 12, 34, UiColor{255, 196, 64, 255});
 
     int x = 22;
     HudRenderer::drawText(renderer, x, 20, "Coins", UiColor{150, 154, 168, 255}, 16);
