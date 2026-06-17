@@ -1,17 +1,19 @@
 #pragma once
+#include <string>
 
 class Currency {
 public:
-  Currency(int startingAmount, int rewardPerKill, int turretCost);
+  Currency(float startingAmount, float rewardPerKill, int turretCost);
 
-  int getBalance() const;
+  float getBalance() const;
+  std::string getBalanceText() const;
   int getTurretCost() const;
 
   void onUnitKilled();
   bool trySpendOnTurret();
 
 private:
-  int balance = 0;
-  int rewardPerKill = 0;
+  float balance = 0.0f;
+  float rewardPerKill = 0.0f;
   int turretCost = 0;
 };

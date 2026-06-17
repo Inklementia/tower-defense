@@ -3,6 +3,7 @@
 #include "SoundLoader.h"
 #include "Timer.h"
 #include "Unit.h"
+#include <cmath>
 
 
 const float Turret::speedAngular =
@@ -23,8 +24,7 @@ void Turret::update(SDL_Renderer *renderer, float dT,
   // Update timer.
   timerWeapon.countDown(dT);
 
-  // Check if a target has been found but is no longer alive or is out of weapon
-  // range.
+  // Check if a target has been found but is no longer alive or is out of weapon range.
   if (auto unitTargetSP = unitTarget.lock()) {
     if (unitTargetSP->isAlive() == false ||
         (unitTargetSP->getPos() - pos).magnitude() > weaponRange) {
@@ -83,9 +83,42 @@ void Turret::shootProjectile(SDL_Renderer *renderer,
 }
 
 void Turret::draw(SDL_Renderer *renderer, int tileSize) {
-  drawTextureWithOffset(renderer, textureShadow,
-                        GameConfig::TURRET_SHADOW_OFFSET, tileSize);
+  drawTextureWithOffset(renderer, textureShadow, GameConfig::TURRET_SHADOW_OFFSET, tileSize);
   drawTextureWithOffset(renderer, textureMain, 0, tileSize);
+}
+
+void Turret::drawRange(SDL_Renderer *renderer, int tileSize) const {
+  if (renderer == nullptr)
+    return;
+
+  const int centerX = (int)(pos.x * tileSize);
+  const int centerY = (int)(pos.y * tileSize);
+  const int radiusPx = (int)(weaponRange * tileSize);
+  const int segments = 64;
+  const int halfWidth = GameConfig::TURRET_RANGE_LINE_WIDTH / 2;
+
+  SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+  SDL_SetRenderDrawColor(renderer, GameConfig::TURRET_RANGE_OUTLINE.r,
+                         GameConfig::TURRET_RANGE_OUTLINE.g,
+                         GameConfig::TURRET_RANGE_OUTLINE.b,
+                         GameConfig::TURRET_RANGE_OUTLINE.a);
+
+  for (int line = -halfWidth; line <= halfWidth; ++line) {
+    const int r = radiusPx + line;
+    if (r <= 0)
+      continue;
+
+    int prevX = centerX + r;
+    int prevY = centerY;
+    for (int i = 1; i <= segments; ++i) {
+      const float angle = (float)i / segments * 2.0f * GameConfig::PI;
+      const int x = centerX + (int)(r * std::cos(angle));
+      const int y = centerY + (int)(r * std::sin(angle));
+      SDL_RenderDrawLine(renderer, prevX, prevY, x, y);
+      prevX = x;
+      prevY = y;
+    }
+  }
 }
 
 void Turret::drawTextureWithOffset(SDL_Renderer *renderer,
@@ -117,11 +150,13 @@ Turret::findEnemyUnit(std::vector<std::shared_ptr<Unit>> &listUnits) {
     // Ensure that the selected unit exists.
     if (unitSelected != nullptr) {
       // Calculate the distance to the selected unit.
-      float distanceCurrent = (pos - unitSelected->getPos()).magnitude();
+        float distanceCurrent = (pos - unitSelected->getPos()).magnitude();
+
       // Check if the unit is within range, and no closest unit has been found
       // or the selected unit is closer than the previous closest unit.
       if (distanceCurrent <= weaponRange &&
           (closestUnit.expired() || distanceCurrent < distanceClosest)) {
+
         // Then set the closest unit to the selected unit.
         closestUnit = unitSelected;
         distanceClosest = distanceCurrent;

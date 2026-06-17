@@ -14,8 +14,10 @@ struct LevelSettings {
   int unitsPerRound = 15;
   int maxRounds = 3;
 
+  float unitHealthMultiplier = 1.8f;
+  float unitsPerRoundMultiplier = 1.5f;
   int startingCurrency = 1;
-  int currencyPerKill = 1;
+  float currencyPerKill = 0.5f;
   int currencyPerLeak = -1;
   int maxLeaks = 10;
   int turretCost = 1;

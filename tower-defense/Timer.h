@@ -10,6 +10,8 @@ public:
   void resetToMax();
   bool timeSIsZero();
   bool timeSIsGreaterThanOrEqualTo(float timeSCheck);
+  float getTimeSCurrent() const { return timeSCurrent; }
+  float getTimeSMax() const { return timeSMax; }
 
 private:
   float timeSMax;

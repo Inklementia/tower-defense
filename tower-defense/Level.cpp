@@ -4,28 +4,20 @@
 Level::Level(SDL_Renderer *renderer, int setTileCountX, int setTileCountY)
     : tileCountX(setTileCountX), tileCountY(setTileCountY),
       targetX(setTileCountX / 2), targetY(setTileCountY / 2) {
+
   textureTileWall = TextureLoader::loadTexture(renderer, "Tile Wall.bmp");
   textureTileTarget = TextureLoader::loadTexture(renderer, "Tile Target.bmp");
-  textureTileEnemySpawner =
-      TextureLoader::loadTexture(renderer, "Tile Enemy Spawner.bmp");
+  textureTileEnemySpawner = TextureLoader::loadTexture(renderer, "Tile Enemy Spawner.bmp");
 
   textureTileEmpty = TextureLoader::loadTexture(renderer, "Tile Empty.bmp");
-  textureTileArrowUp =
-      TextureLoader::loadTexture(renderer, "Tile Arrow Up.bmp");
-  textureTileArrowUpRight =
-      TextureLoader::loadTexture(renderer, "Tile Arrow Up Right.bmp");
-  textureTileArrowRight =
-      TextureLoader::loadTexture(renderer, "Tile Arrow Right.bmp");
-  textureTileArrowDownRight =
-      TextureLoader::loadTexture(renderer, "Tile Arrow Down Right.bmp");
-  textureTileArrowDown =
-      TextureLoader::loadTexture(renderer, "Tile Arrow Down.bmp");
-  textureTileArrowDownLeft =
-      TextureLoader::loadTexture(renderer, "Tile Arrow Down Left.bmp");
-  textureTileArrowLeft =
-      TextureLoader::loadTexture(renderer, "Tile Arrow Left.bmp");
-  textureTileArrowUpLeft =
-      TextureLoader::loadTexture(renderer, "Tile Arrow Up Left.bmp");
+  textureTileArrowUp = TextureLoader::loadTexture(renderer, "Tile Arrow Up.bmp");
+  textureTileArrowUpRight = TextureLoader::loadTexture(renderer, "Tile Arrow Up Right.bmp");
+  textureTileArrowRight = TextureLoader::loadTexture(renderer, "Tile Arrow Right.bmp");
+  textureTileArrowDownRight = TextureLoader::loadTexture(renderer, "Tile Arrow Down Right.bmp");
+  textureTileArrowDown = TextureLoader::loadTexture(renderer, "Tile Arrow Down.bmp");
+  textureTileArrowDownLeft = TextureLoader::loadTexture(renderer, "Tile Arrow Down Left.bmp");
+  textureTileArrowLeft = TextureLoader::loadTexture(renderer, "Tile Arrow Left.bmp");
+  textureTileArrowUpLeft = TextureLoader::loadTexture(renderer, "Tile Arrow Up Left.bmp");
 
   size_t listTilesSize = (size_t)tileCountX * tileCountY;
   listTiles.assign(listTilesSize, Tile{});

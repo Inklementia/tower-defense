@@ -46,9 +46,11 @@ private:
   void addUnit(Vector2D pos);
   void addTurret(Vector2D posMouse);
   void removeTurretsAtMousePosition(Vector2D posMouse);
+  int findTurretAtTile(int tileX, int tileY) const;
   void onUnitRemoved(const std::shared_ptr<Unit> &unit);
 
   int mouseDownStatus = 0;
+  int selectedTurretIndex = -1;
 
   SDL_Renderer *renderer = nullptr;
 

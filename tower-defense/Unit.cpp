@@ -4,8 +4,9 @@
 const float Unit::speed = GameConfig::UNIT_SPEED;
 const float Unit::size = GameConfig::UNIT_SIZE;
 
-Unit::Unit(SDL_Renderer *renderer, Vector2D setPos)
-    : pos(setPos), timerJustHurt(GameConfig::UNIT_HURT_FLASH_S) {
+Unit::Unit(SDL_Renderer *renderer, Vector2D setPos, int setHealthMax)
+    : pos(setPos), timerJustHurt(GameConfig::UNIT_HURT_FLASH_S),
+      healthMax(setHealthMax), healthCurrent(setHealthMax) {
   texture = TextureLoader::loadTexture(renderer, "Unit.bmp");
 }
 
@@ -17,7 +18,7 @@ void Unit::update(float dT, Level &level,
   float distanceToTarget = (level.getTargetPos() - pos).magnitude();
 
   if (distanceToTarget < GameConfig::UNIT_TARGET_REACH_DISTANCE) {
-    deathReason = UnitDeathReason::leaked;
+    deathReason = UnitDeathReason::escaped;
     healthCurrent = 0;
   } else {
     // Determine the distance to move this frame.
@@ -80,28 +81,59 @@ void Unit::update(float dT, Level &level,
 }
 
 void Unit::draw(SDL_Renderer *renderer, int tileSize) {
-  if (renderer != nullptr) {
-    // Set the texture's draw color to red if this unit was hurt recently.
-    if (timerJustHurt.timeSIsZero() == false)
+  if (renderer == nullptr)
+    return;
+
+  if (timerJustHurt.timeSIsZero() == false) {
+    const float elapsed =
+        timerJustHurt.getTimeSMax() - timerJustHurt.getTimeSCurrent();
+    const float phaseDuration = timerJustHurt.getTimeSMax() /
+        (GameConfig::UNIT_HURT_FLASH_COUNT * 2.0f);
+    if (((int)(elapsed / phaseDuration) % 2) == 0) {
       SDL_SetTextureColorMod(texture, GameConfig::UNIT_TEXTURE_HURT.r,
                              GameConfig::UNIT_TEXTURE_HURT.g,
                              GameConfig::UNIT_TEXTURE_HURT.b);
-    else if (healthCurrent <= healthMax - 1) {
-      const int shade =
-          (int)(255.0f * GameConfig::UNIT_TEXTURE_DAMAGED_BRIGHTNESS);
-      SDL_SetTextureColorMod(texture, shade, shade, shade);
     } else {
-      SDL_SetTextureColorMod(texture, GameConfig::UNIT_TEXTURE_NORMAL.r,
-                             GameConfig::UNIT_TEXTURE_NORMAL.g,
-                             GameConfig::UNIT_TEXTURE_NORMAL.b);
+      SDL_SetTextureColorMod(texture, GameConfig::UNIT_TEXTURE_HURT_DIM.r,
+                             GameConfig::UNIT_TEXTURE_HURT_DIM.g,
+                             GameConfig::UNIT_TEXTURE_HURT_DIM.b);
     }
+  } else {
+    SDL_SetTextureColorMod(texture, GameConfig::UNIT_TEXTURE_NORMAL.r,
+                           GameConfig::UNIT_TEXTURE_NORMAL.g,
+                           GameConfig::UNIT_TEXTURE_NORMAL.b);
+  }
 
-    // Draw the image at the unit's position.
-    int w, h;
-    SDL_QueryTexture(texture, NULL, NULL, &w, &h);
-    SDL_Rect rect = {(int)(pos.x * tileSize) - w / 2,
-                     (int)(pos.y * tileSize) - h / 2, w, h};
-    SDL_RenderCopy(renderer, texture, NULL, &rect);
+  int w, h;
+  SDL_QueryTexture(texture, NULL, NULL, &w, &h);
+  const int centerX = (int)(pos.x * tileSize);
+  const int centerY = (int)(pos.y * tileSize);
+  SDL_Rect rect = {centerX - w / 2, centerY - h / 2, w, h};
+  SDL_RenderCopy(renderer, texture, NULL, &rect);
+
+  if (healthMax > 1) {
+    const int barW = GameConfig::UNIT_HEALTH_BAR_WIDTH;
+    const int barH = GameConfig::UNIT_HEALTH_BAR_HEIGHT;
+    const int barX = centerX - barW / 2;
+    const int barY = centerY - h / 2 - GameConfig::UNIT_HEALTH_BAR_OFFSET_Y - barH;
+
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(renderer, GameConfig::UNIT_HEALTH_BAR_BG.r,
+                           GameConfig::UNIT_HEALTH_BAR_BG.g,
+                           GameConfig::UNIT_HEALTH_BAR_BG.b,
+                           GameConfig::UNIT_HEALTH_BAR_BG.a);
+    SDL_Rect bgRect = {barX, barY, barW, barH};
+    SDL_RenderFillRect(renderer, &bgRect);
+
+    const int fillW = barW * healthCurrent / healthMax;
+    if (fillW > 0) {
+      SDL_SetRenderDrawColor(renderer, GameConfig::UNIT_HEALTH_BAR_FILL.r,
+                             GameConfig::UNIT_HEALTH_BAR_FILL.g,
+                             GameConfig::UNIT_HEALTH_BAR_FILL.b,
+                             GameConfig::UNIT_HEALTH_BAR_FILL.a);
+      SDL_Rect fillRect = {barX, barY, fillW, barH};
+      SDL_RenderFillRect(renderer, &fillRect);
+    }
   }
 }
 

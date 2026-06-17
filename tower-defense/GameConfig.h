@@ -24,7 +24,6 @@ constexpr float PI = 3.14159265359f;
 
 // Game loop
 constexpr float FRAME_DT = 1.0f / 60.0f;
-constexpr int UNITS_PER_ROUND_GROWTH = 3;
 
 // Units
 constexpr float UNIT_SPEED = 1.5f;
@@ -34,16 +33,24 @@ constexpr float UNIT_TARGET_REACH_DISTANCE = 0.5f;
 constexpr float UNIT_OVERLAP_MIN_DISTANCE = 0.01f;
 constexpr float UNIT_COLLISION_ANGLE = PI / 4.0f;
 constexpr int UNIT_HEALTH_MAX = 2;
-constexpr float UNIT_HURT_FLASH_S = 0.25f;
-constexpr float UNIT_TEXTURE_DAMAGED_BRIGHTNESS = 0.65f;
+constexpr float UNIT_HURT_FLASH_S = 0.125f;
+constexpr int UNIT_HURT_FLASH_COUNT = 2;
+constexpr int UNIT_HEALTH_BAR_WIDTH = 24;
+constexpr int UNIT_HEALTH_BAR_HEIGHT = 4;
+constexpr int UNIT_HEALTH_BAR_OFFSET_Y = 2;
 constexpr Color UNIT_TEXTURE_NORMAL{255, 255, 255, 255};
-constexpr Color UNIT_TEXTURE_HURT{255, 0, 0, 255};
+constexpr Color UNIT_TEXTURE_HURT{255, 255, 255, 255};
+constexpr Color UNIT_TEXTURE_HURT_DIM{160, 160, 160, 255};
+constexpr Color UNIT_HEALTH_BAR_BG{0, 0, 0, 200};
+constexpr Color UNIT_HEALTH_BAR_FILL{60, 200, 80, 255};
 
 // Turrets
 constexpr float TURRET_ROTATION_SPEED_DEG = 180.0f;
-constexpr float TURRET_WEAPON_RANGE = 5.0f;
+constexpr float TURRET_WEAPON_RANGE = 4.0f;
 constexpr float TURRET_WEAPON_COOLDOWN_S = 1.0f;
 constexpr int TURRET_SHADOW_OFFSET = 5;
+constexpr Color TURRET_RANGE_OUTLINE{120, 200, 255, 180};
+constexpr int TURRET_RANGE_LINE_WIDTH = 3;
 
 // Projectiles
 constexpr float PROJECTILE_SPEED = 10.0f;

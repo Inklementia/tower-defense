@@ -17,6 +17,7 @@ public:
               std::vector<std::shared_ptr<Unit>> &listUnits,
               std::vector<Projectile> &listProjectiles);
   void draw(SDL_Renderer *renderer, int tileSize);
+  void drawRange(SDL_Renderer *renderer, int tileSize) const;
   bool checkIfOnTile(int x, int y) const;
 
 private:

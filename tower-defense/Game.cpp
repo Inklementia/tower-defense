@@ -132,6 +132,17 @@ void Game::processEvents(bool& running, GameRunResult& exitResult) {
         return;
 
     if (mouseDownStatus > 0) {
+        if (mouseDownStatus == SDL_BUTTON_LEFT && mouseDownThisFrame) {
+            const int tileX = (int)posMouse.x;
+            const int tileY = (int)posMouse.y;
+            const int turretIndex = findTurretAtTile(tileX, tileY);
+            if (turretIndex >= 0) {
+                selectedTurretIndex = turretIndex;
+                return;
+            }
+            selectedTurretIndex = -1;
+        }
+
         switch (mouseDownStatus) {
         case SDL_BUTTON_LEFT:
             switch (placementModeCurrent) {
@@ -258,7 +269,7 @@ void Game::onUnitRemoved(const std::shared_ptr<Unit>& unit) {
     case UnitDeathReason::killed:
         currency.onUnitKilled();
         break;
-    case UnitDeathReason::leaked:
+	case UnitDeathReason::escaped:
         escaped++;
         break;
     default:
@@ -312,8 +323,10 @@ void Game::updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT) {
         roundTimer.countDown(dT);
         if (roundTimer.timeSIsZero()) {
             currentRound++;
-            spawnUnitCount = levelSettings.unitsPerRound +
-                (currentRound - 1) * GameConfig::UNITS_PER_ROUND_GROWTH;
+            float spawnCount = static_cast<float>(levelSettings.unitsPerRound);
+            for (int round = 1; round < currentRound; ++round)
+                spawnCount *= levelSettings.unitsPerRoundMultiplier;
+            spawnUnitCount = static_cast<int>(spawnCount);
             roundTimer.resetToMax();
         }
     }
@@ -348,6 +361,10 @@ void Game::draw(SDL_Renderer* renderer) {
     for (auto& unitSelected : listUnits)
         if (unitSelected != nullptr)
             unitSelected->draw(renderer, GameConfig::TILE_SIZE);
+
+    if (selectedTurretIndex >= 0 &&
+        selectedTurretIndex < (int)listTurrets.size())
+        listTurrets[selectedTurretIndex].drawRange(renderer, GameConfig::TILE_SIZE);
 
     //Draw turrets
     for (auto& turretSelected : listTurrets)
@@ -425,27 +442,47 @@ void Game::drawHud(SDL_Renderer* renderer) {
 
     const std::string escapedText =
         std::to_string(escaped) + "/" + std::to_string(levelSettings.maxLeaks);
-    const std::string coinsText = std::to_string(currency.getBalance());
+    const std::string coinsText = currency.getBalanceText();
+    const std::string roundText =
+        std::to_string(currentRound) + "/" + std::to_string(levelSettings.maxRounds);
 
-    int endX = 22 + 52;
-    endX += HudRenderer::measureTextWidth(coinsText, 16);
-    endX += 20 + HudRenderer::measureTextWidth("Escaped", 16) + 10;
-    endX += HudRenderer::measureTextWidth(escapedText, 16);
+    const int hudY = 20;
+    const int fontSize = 16;
+    const int gapAfterLabel = 10;
+    const int gapAfterSection = 20;
+
+    auto sectionWidth = [&](const char* label, const std::string& value) {
+        return HudRenderer::measureTextWidth(label, fontSize) + gapAfterLabel +
+            HudRenderer::measureTextWidth(value, fontSize) + gapAfterSection;
+    };
+
+    int endX = 22;
+    endX += sectionWidth("Coins", coinsText);
+    endX += sectionWidth("Round", roundText);
+    endX += sectionWidth("Escaped", escapedText) - gapAfterSection;
 
     HudRenderer::drawHudBox(renderer, 10, 10, endX - 10 + 12, 34, UiColor{255, 196, 64, 255});
 
     int x = 22;
-    HudRenderer::drawText(renderer, x, 20, "Coins", UiColor{150, 154, 168, 255}, 16);
-    x += 52;
-    HudRenderer::drawText(renderer, x, 18, coinsText, UiColor{255, 196, 64, 255}, 16);
-    x += HudRenderer::measureTextWidth(coinsText, 16) + 20;
-    HudRenderer::drawText(renderer, x, 20, "Escaped", UiColor{235, 55, 55, 255}, 16);
-    x += HudRenderer::measureTextWidth("Escaped", 16) + 10;
-    HudRenderer::drawText(renderer, x, 18, escapedText, UiColor{235, 55, 55, 255}, 16);
+    auto drawSection = [&](const char* label, const std::string& value,
+        UiColor labelColor, UiColor valueColor) {
+        HudRenderer::drawText(renderer, x, hudY, label, labelColor, fontSize);
+        x += HudRenderer::measureTextWidth(label, fontSize) + gapAfterLabel;
+        HudRenderer::drawText(renderer, x, hudY, value, valueColor, fontSize);
+        x += HudRenderer::measureTextWidth(value, fontSize) + gapAfterSection;
+    };
+
+    drawSection("Coins", coinsText, UiColor{150, 154, 168, 255}, UiColor{255, 196, 64, 255});
+    drawSection("Round", roundText, UiColor{150, 154, 168, 255}, UiColor{235, 235, 240, 255});
+    drawSection("Escaped", escapedText, UiColor{235, 55, 55, 255}, UiColor{235, 55, 55, 255});
 }
 
 void Game::addUnit(Vector2D pos) {
-    listUnits.push_back(std::make_shared<Unit>(renderer, pos));
+    float health = static_cast<float>(GameConfig::UNIT_HEALTH_MAX);
+    for (int round = 1; round < currentRound; ++round)
+        health *= levelSettings.unitHealthMultiplier;
+    listUnits.push_back(
+        std::make_shared<Unit>(renderer, pos, static_cast<int>(health)));
 }
 
 void Game::addTurret(Vector2D posMouse) {
@@ -472,10 +509,26 @@ void Game::addTurret(Vector2D posMouse) {
 }
 
 void Game::removeTurretsAtMousePosition(Vector2D posMouse) {
-    for (auto it = listTurrets.begin(); it != listTurrets.end();) {
-        if ((*it).checkIfOnTile((int)posMouse.x, (int)posMouse.y))
-            it = listTurrets.erase(it);
-        else
-            it++;
+    const int tileX = (int)posMouse.x;
+    const int tileY = (int)posMouse.y;
+    for (size_t i = 0; i < listTurrets.size();) {
+        if (listTurrets[i].checkIfOnTile(tileX, tileY)) {
+            if (selectedTurretIndex == (int)i)
+                selectedTurretIndex = -1;
+            else if (selectedTurretIndex > (int)i)
+                selectedTurretIndex--;
+            listTurrets.erase(listTurrets.begin() + i);
+        }
+        else {
+            ++i;
+        }
     }
+}
+
+int Game::findTurretAtTile(int tileX, int tileY) const {
+    for (size_t i = 0; i < listTurrets.size(); ++i) {
+        if (listTurrets[i].checkIfOnTile(tileX, tileY))
+            return (int)i;
+    }
+    return -1;
 }

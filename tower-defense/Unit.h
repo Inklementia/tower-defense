@@ -8,12 +8,12 @@
 #include <memory>
 #include <vector>
 
-
-enum class UnitDeathReason { none, killed, leaked };
+enum class UnitDeathReason { none, killed, escaped };
 
 class Unit {
 public:
-  Unit(SDL_Renderer *renderer, Vector2D setPos);
+  Unit(SDL_Renderer *renderer, Vector2D setPos,
+       int setHealthMax = GameConfig::UNIT_HEALTH_MAX);
 
   void update(float dT, Level &level,
               std::vector<std::shared_ptr<Unit>> &listUnits);
@@ -34,6 +34,6 @@ private:
   Timer timerJustHurt;
   UnitDeathReason deathReason = UnitDeathReason::none;
 
-  const int healthMax = GameConfig::UNIT_HEALTH_MAX;
-  int healthCurrent = healthMax;
+  int healthMax;
+  int healthCurrent;
 };

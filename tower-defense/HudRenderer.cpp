@@ -3,17 +3,16 @@
 #include "stb/stb_truetype.h"
 #include <fstream>
 
-namespace {
-constexpr const char *FONT_PATH = "Data/Fonts/Crooker.otf";
-unsigned char *fontBuffer = nullptr;
-stbtt_fontinfo fontInfo{};
-bool fontLoaded = false;
+static constexpr const char *FONT_PATH = "Data/Fonts/Crooker.otf";
+static unsigned char *fontBuffer = nullptr;
+static stbtt_fontinfo fontInfo{};
+static bool fontLoaded = false;
 
-float getScale(int fontSize) {
+static float getScale(int fontSize) {
   return stbtt_ScaleForPixelHeight(&fontInfo, (float)fontSize);
 }
 
-int measureGlyphRunWidth(const std::string &text, int fontSize) {
+static int measureGlyphRunWidth(const std::string &text, int fontSize) {
   if (!fontLoaded || text.empty())
     return 0;
 
@@ -27,8 +26,9 @@ int measureGlyphRunWidth(const std::string &text, int fontSize) {
   return width;
 }
 
-void drawStringBitmap(SDL_Renderer *renderer, int x, int y,
-                      const std::string &text, UiColor color, int fontSize) {
+static void drawStringBitmap(SDL_Renderer *renderer, int x, int y,
+                             const std::string &text, UiColor color,
+                             int fontSize) {
   if (!fontLoaded || text.empty())
     return;
 
@@ -73,7 +73,6 @@ void drawStringBitmap(SDL_Renderer *renderer, int x, int y,
     xPos += (int)(advance * scale);
   }
 }
-} // namespace
 
 bool HudRenderer::init() {
   std::ifstream file(FONT_PATH, std::ios::binary | std::ios::ate);

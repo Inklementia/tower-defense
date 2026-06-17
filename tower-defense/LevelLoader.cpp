@@ -3,7 +3,6 @@
 #include <fstream>
 #include <iostream>
 
-
 static std::string trim(const std::string &value) {
   size_t start = value.find_first_not_of(" \t\r\n");
   if (start == std::string::npos)
@@ -63,10 +62,14 @@ LevelSettings LevelLoader::load(const std::string &filename) {
       settings.unitsPerRound = std::stoi(value);
     } else if (key == "max_rounds") {
       settings.maxRounds = std::stoi(value);
+    } else if (key == "unit_health_multiplier") {
+      settings.unitHealthMultiplier = std::stof(value);
+    } else if (key == "units_per_round_multiplier") {
+      settings.unitsPerRoundMultiplier = std::stof(value);
     } else if (key == "starting_currency") {
       settings.startingCurrency = std::stoi(value);
     } else if (key == "currency_per_kill") {
-      settings.currencyPerKill = std::stoi(value);
+      settings.currencyPerKill = std::stof(value);
     } else if (key == "currency_per_leak") {
       settings.currencyPerLeak = std::stoi(value);
     } else if (key == "max_leaks") {
