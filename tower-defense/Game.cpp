@@ -1,53 +1,84 @@
 #include "Game.h"
+#include "HudRenderer.h"
+#include "LevelSaver.h"
 #include "SoundLoader.h"
-Game::Game(SDL_Window* window, SDL_Renderer* renderer) :
-    placementModeCurrent(PlacementMode::wall),
-    level(renderer, GameConfig::TILE_COUNT_X, GameConfig::TILE_COUNT_Y),
-    spawnTimer(GameConfig::SPAWN_INTERVAL_S), roundTimer(GameConfig::ROUND_DELAY_S) {
+#include <string>
 
-    //Run the game.
-    if (window != nullptr && renderer != nullptr) {
-        //Load the overlay texture.
-        textureOverlay = TextureLoader::loadTexture(renderer, "Overlay.bmp");
+namespace {
+void drawHudBox(SDL_Renderer* renderer, int x, int y, int w, int h, UiColor border) {
+    HudRenderer::drawPanel(renderer, x, y, w, h, UiColor{24, 26, 34, 215});
+    HudRenderer::drawPanel(renderer, x, y, w, 2, border);
+}
 
-        //Load the spawn unit sound.
-        mix_ChunkSpawnUnit = SoundLoader::loadSound("Spawn Unit.ogg");
+bool isSaveButtonAt(int x, int y) {
+    const int saveX = GameConfig::WINDOW_WIDTH - 10 - 148;
+    return x >= saveX && x <= saveX + 148 && y >= 10 && y <= 44;
+}
+}
 
-        //Store the current times for the clock.
-        auto time1 = std::chrono::system_clock::now();
+Game::Game(SDL_Renderer* setRenderer, const LevelSettings& settings) :
+    renderer(setRenderer),
+    placementModeCurrent(settings.creativeMode ? PlacementMode::wall :
+        (settings.allowWallEdit ? PlacementMode::wall : PlacementMode::turret)),
+    level(setRenderer, GameConfig::TILE_COUNT_X, GameConfig::TILE_COUNT_Y),
+    levelSettings(settings),
+    spawnTimer(settings.spawnIntervalS),
+    roundTimer(settings.roundDelayS),
+    currency(settings.startingCurrency, settings.currencyPerKill, settings.turretCost) {
+
+    level.applySettings(settings);
+    mix_ChunkSpawnUnit = SoundLoader::loadSound("Spawn Unit.ogg");
+}
+
+Game::~Game() {
+    SoundLoader::deallocateSounds();
+}
+
+GameRunResult Game::run() {
+    auto time1 = std::chrono::system_clock::now();
+    const float dT = GameConfig::FRAME_DT;
+    bool running = true;
+    GameRunResult exitResult = GameRunResult::menu;
+
+    while (running) {
         auto time2 = std::chrono::system_clock::now();
+        std::chrono::duration<float> timeDelta = time2 - time1;
+        float timeDeltaFloat = timeDelta.count();
 
-        //The amount of time for each frame (60 fps).
-        const float dT = GameConfig::FRAME_DT;
-
-        //Start the game loop and run until it's time to stop.
-        bool running = true;
-        while (running) {
-            //Determine how much time has elapsed since the last frame.
-            time2 = std::chrono::system_clock::now();
-            std::chrono::duration<float> timeDelta = time2 - time1;
-            float timeDeltaFloat = timeDelta.count();
-
-            //If enough time has passed then do everything required to generate the next frame.
-            if (timeDeltaFloat >= dT) {
-                //Store the new time for the next frame.
-                time1 = time2;
-
-                processEvents(renderer, running);
+        if (timeDeltaFloat >= dT) {
+            time1 = time2;
+            processEvents(running, exitResult);
+            if (running) {
                 update(renderer, dT);
                 draw(renderer);
             }
         }
     }
+
+    if (matchState == MatchState::won || matchState == MatchState::lost)
+        return GameRunResult::menu;
+
+    return exitResult;
 }
 
-Game::~Game() {
-    //Clean up.
-    TextureLoader::deallocateTextures();
-    SoundLoader::deallocateSounds();
-}
+void Game::processEvents(bool& running, GameRunResult& exitResult) {
+    if (matchState != MatchState::playing) {
+        SDL_Event event;
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) {
+                running = false;
+                exitResult = GameRunResult::quit;
+                return;
+            }
+            else if (event.type == SDL_KEYDOWN || event.type == SDL_MOUSEBUTTONDOWN) {
+                running = false;
+                exitResult = GameRunResult::menu;
+                return;
+            }
+        }
+        return;
+    }
 
-void Game::processEvents(SDL_Renderer* renderer, bool& running) {
     bool mouseDownThisFrame = false;
 
     //Process events.
@@ -56,7 +87,8 @@ void Game::processEvents(SDL_Renderer* renderer, bool& running) {
         switch (event.type) {
         case SDL_QUIT:
             running = false;
-            break;
+            exitResult = GameRunResult::quit;
+            return;
 
         case SDL_MOUSEBUTTONDOWN:
             mouseDownThisFrame = (mouseDownStatus == 0);
@@ -64,6 +96,9 @@ void Game::processEvents(SDL_Renderer* renderer, bool& running) {
                 mouseDownStatus = SDL_BUTTON_LEFT;
             else if (event.button.button == SDL_BUTTON_RIGHT)
                 mouseDownStatus = SDL_BUTTON_RIGHT;
+
+            if (levelSettings.creativeMode && event.button.button == SDL_BUTTON_LEFT)
+                handleHudClick(event.button.x, event.button.y);
             break;
         case SDL_MOUSEBUTTONUP:
             mouseDownStatus = 0;
@@ -71,24 +106,30 @@ void Game::processEvents(SDL_Renderer* renderer, bool& running) {
 
         case SDL_KEYDOWN:
             switch (event.key.keysym.scancode) {
-                //Quit the game.
             case SDL_SCANCODE_ESCAPE:
                 running = false;
+                exitResult = GameRunResult::menu;
                 break;
-
-                //Set the current gamemode.
             case SDL_SCANCODE_1:
                 placementModeCurrent = PlacementMode::wall;
                 break;
             case SDL_SCANCODE_2:
                 placementModeCurrent = PlacementMode::turret;
                 break;
-
-                //Show/hide the overlay
-            case SDL_SCANCODE_H:
-                overlayVisible = !overlayVisible;
+            case SDL_SCANCODE_3:
+                if (levelSettings.creativeMode)
+                    placementModeCurrent = PlacementMode::spawner;
+                break;
+            case SDL_SCANCODE_4:
+                if (levelSettings.creativeMode)
+                    placementModeCurrent = PlacementMode::target;
+                break;
+            case SDL_SCANCODE_S:
+                if (levelSettings.creativeMode)
+                    saveAsLevel1();
                 break;
             }
+            break;
         }
     }
 
@@ -99,34 +140,92 @@ void Game::processEvents(SDL_Renderer* renderer, bool& running) {
     //Convert from the window's coordinate system to the game's coordinate system.
     Vector2D posMouse((float)mouseX / GameConfig::TILE_SIZE, (float)mouseY / GameConfig::TILE_SIZE);
 
+    if (levelSettings.creativeMode && isSaveButtonAt(mouseX, mouseY))
+        return;
+
     if (mouseDownStatus > 0) {
         switch (mouseDownStatus) {
         case SDL_BUTTON_LEFT:
             switch (placementModeCurrent) {
             case PlacementMode::wall:
-                //Add wall at the mouse position.
-                level.setTileWall((int)posMouse.x, (int)posMouse.y, true);
+                if ((levelSettings.allowWallEdit || levelSettings.creativeMode) &&
+                    !level.isTargetTile((int)posMouse.x, (int)posMouse.y))
+                    level.setTileWall((int)posMouse.x, (int)posMouse.y, true);
                 break;
             case PlacementMode::turret:
-                //Add the selected turret at the mouse position.
                 if (mouseDownThisFrame)
-                    addTurret(renderer, posMouse);
+                    addTurret(posMouse);
+                break;
+            case PlacementMode::spawner:
+                if (levelSettings.creativeMode && mouseDownThisFrame &&
+                    !level.isTargetTile((int)posMouse.x, (int)posMouse.y))
+                    level.setSpawner((int)posMouse.x, (int)posMouse.y, true);
+                break;
+            case PlacementMode::target:
+                if (levelSettings.creativeMode && mouseDownThisFrame && !level.hasTarget())
+                    level.setTargetPosition((int)posMouse.x, (int)posMouse.y);
                 break;
             }
             break;
 
 
         case SDL_BUTTON_RIGHT:
-            //Remove wall at the mouse position.
-            level.setTileWall((int)posMouse.x, (int)posMouse.y, false);
-            //Remove turrets at the mouse position.
+            if (levelSettings.creativeMode) {
+                const int tileX = (int)posMouse.x;
+                const int tileY = (int)posMouse.y;
+                if (level.isTargetTile(tileX, tileY))
+                    level.clearTarget();
+                else {
+                    level.setSpawner(tileX, tileY, false);
+                    level.setTileWall(tileX, tileY, false);
+                }
+            }
+            else if (levelSettings.allowWallEdit) {
+                level.setTileWall((int)posMouse.x, (int)posMouse.y, false);
+            }
             removeTurretsAtMousePosition(posMouse);
             break;
         }
     }
 }
 
+void Game::handleHudClick(int mouseX, int mouseY) {
+    if (isSaveButtonAt(mouseX, mouseY))
+        saveAsLevel1();
+}
+
+void Game::saveAsLevel1() {
+    if (!level.hasTarget()) {
+        saveMessage = "Place target first (4)";
+        saveMessageTimerS = 2.0f;
+        return;
+    }
+    if (!level.hasSpawners()) {
+        saveMessage = "Place spawner first (3)";
+        saveMessageTimerS = 2.0f;
+        return;
+    }
+
+    std::vector<std::pair<int, int>> walls;
+    std::vector<std::pair<int, int>> spawners;
+    int targetX = 0;
+    int targetY = 0;
+    level.collectLayout(walls, spawners, targetX, targetY);
+
+    if (LevelSaver::saveLayout("Data/Levels/level1.txt", targetX, targetY, spawners, walls)) {
+        saveMessage = "Level 1 saved";
+        saveMessageTimerS = 2.0f;
+    }
+    else {
+        saveMessage = "Save failed";
+        saveMessageTimerS = 2.0f;
+    }
+}
+
 void Game::update(SDL_Renderer* renderer, float dT) {
+    if (saveMessageTimerS > 0.0f)
+        saveMessageTimerS -= dT;
+
     //Update the units.
     updateUnits(dT);
 
@@ -138,6 +237,7 @@ void Game::update(SDL_Renderer* renderer, float dT) {
     updateProjectiles(dT);
 
     updateSpawnUnitsIfRequired(renderer, dT);
+    updateMatchState(dT);
 }
 
 void Game::updateUnits(float dT) {
@@ -151,6 +251,7 @@ void Game::updateUnits(float dT) {
 
             //Check if the unit is still alive.  If not then erase it and don't increment the iterator.
             if ((*it)->isAlive() == false) {
+                onUnitRemoved(*it);
                 it = listUnits.erase(it);
                 increment = false;
             }
@@ -159,6 +260,25 @@ void Game::updateUnits(float dT) {
         if (increment)
             it++;
     }
+}
+
+void Game::onUnitRemoved(const std::shared_ptr<Unit>& unit) {
+    if (unit == nullptr)
+        return;
+
+    switch (unit->getDeathReason()) {
+    case UnitDeathReason::killed:
+        currency.onUnitKilled();
+        break;
+    case UnitDeathReason::leaked:
+        escaped++;
+        break;
+    default:
+        break;
+    }
+
+    if (!levelSettings.creativeMode && escaped >= levelSettings.maxLeaks)
+        matchState = MatchState::lost;
 }
 
 void Game::updateProjectiles(float dT) {
@@ -174,21 +294,19 @@ void Game::updateProjectiles(float dT) {
             it++;
     }
 }
-void Game::updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT) {
-    spawnTimer.countDown(dT);
 
-    //Check if the round needs to start.
-    if (listUnits.empty() && spawnUnitCount == 0) {
-        roundTimer.countDown(dT);
-        if (roundTimer.timeSIsZero()) {
-            spawnUnitCount = GameConfig::UNITS_PER_ROUND;
-            roundTimer.resetToMax();
-        }
-    }
+void Game::updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT) {
+    if (matchState != MatchState::playing || levelSettings.creativeMode)
+        return;
+
+    if (!level.hasSpawners() || !level.hasTarget())
+        return;
+
+    spawnTimer.countDown(dT);
 
     //Add a unit if needed.
     if (spawnUnitCount > 0 && spawnTimer.timeSIsZero()) {
-        addUnit(renderer, level.getRandomEnemySpawnerLocation());
+        addUnit(level.getRandomEnemySpawnerLocation());
 
         //Play the spawn unit sound.
         if (mix_ChunkSpawnUnit != nullptr)
@@ -197,11 +315,33 @@ void Game::updateSpawnUnitsIfRequired(SDL_Renderer* renderer, float dT) {
         spawnUnitCount--;
         spawnTimer.resetToMax();
     }
+
+    if (currentRound >= levelSettings.maxRounds)
+        return;
+
+    //Check if the round needs to start.
+    if (listUnits.empty() && spawnUnitCount == 0) {
+        roundTimer.countDown(dT);
+        if (roundTimer.timeSIsZero()) {
+            currentRound++;
+            spawnUnitCount = levelSettings.unitsPerRound +
+                (currentRound - 1) * GameConfig::UNITS_PER_ROUND_GROWTH;
+            roundTimer.resetToMax();
+        }
+    }
+}
+
+void Game::updateMatchState(float dT) {
+    if (matchState != MatchState::playing || levelSettings.creativeMode)
+        return;
+
+    if (currentRound >= levelSettings.maxRounds && listUnits.empty() &&
+        spawnUnitCount == 0 && escaped < levelSettings.maxLeaks)
+        matchState = MatchState::won;
 }
 
 void Game::draw(SDL_Renderer* renderer) {
     //Draw.
-    //Set the draw color to white.
     SDL_SetRenderDrawColor(renderer,
         GameConfig::CLEAR_COLOR.r,
         GameConfig::CLEAR_COLOR.g,
@@ -210,7 +350,9 @@ void Game::draw(SDL_Renderer* renderer) {
     //Clear the screen.
     SDL_RenderClear(renderer);
 
-    //Draw everything here.
+    SDL_Rect playfield = { 0, 0, GameConfig::WINDOW_WIDTH, GameConfig::WINDOW_HEIGHT };
+    SDL_RenderSetViewport(renderer, &playfield);
+
     //Draw the level.
     level.draw(renderer, GameConfig::TILE_SIZE);
 
@@ -226,25 +368,118 @@ void Game::draw(SDL_Renderer* renderer) {
     //Draw projectiles
     for (auto& projectSelected : listProjectiles)
         projectSelected.draw(renderer, GameConfig::TILE_SIZE);
-    
-    //Draw the overlay.
-    if (textureOverlay != nullptr && overlayVisible) {
-        int w = 0, h = 0;
-        SDL_QueryTexture(textureOverlay, NULL, NULL, &w, &h);
-        SDL_Rect rect = { GameConfig::OVERLAY_X, GameConfig::OVERLAY_Y, w, h };
-        SDL_RenderCopy(renderer, textureOverlay, NULL, &rect);
-    }
+
+    SDL_RenderSetViewport(renderer, NULL);
+
+    drawHud(renderer);
 
     //Send the image to the window.
     SDL_RenderPresent(renderer);
 }
 
-void Game::addUnit(SDL_Renderer* renderer, Vector2D posMouse) {
-    listUnits.push_back(std::make_shared<Unit>(renderer, posMouse));
+void Game::drawHud(SDL_Renderer* renderer) {
+    if (levelSettings.creativeMode) {
+        const char* active = "Wall";
+        switch (placementModeCurrent) {
+        case PlacementMode::turret:
+            active = "Turret";
+            break;
+        case PlacementMode::spawner:
+            active = "Spawner";
+            break;
+        case PlacementMode::target:
+            active = "Target";
+            break;
+        default:
+            break;
+        }
+
+        drawHudBox(renderer, 10, 10, 420, 48, UiColor{255, 196, 64, 255});
+        HudRenderer::drawText(renderer, 22, 18, "1 Wall", UiColor{150, 154, 168, 255}, 16);
+        HudRenderer::drawText(renderer, 90, 18, "2 Turret", UiColor{150, 154, 168, 255}, 16);
+        HudRenderer::drawText(renderer, 178, 18, "3 Spawner", UiColor{150, 154, 168, 255}, 16);
+        HudRenderer::drawText(renderer, 282, 18, "4 Target", UiColor{150, 154, 168, 255}, 16);
+        HudRenderer::drawText(renderer, 22, 38, std::string("Mode: ") + active,
+            UiColor{255, 196, 64, 255}, 16);
+
+        const int saveX = GameConfig::WINDOW_WIDTH - 10 - 148;
+        drawHudBox(renderer, saveX, 10, 148, 34, UiColor{255, 196, 64, 255});
+        HudRenderer::drawTextCentered(renderer, saveX + 74, 19, "Save Level 1",
+            UiColor{235, 235, 240, 255}, 16);
+
+        if (saveMessageTimerS > 0.0f && !saveMessage.empty()) {
+            const int msgW = HudRenderer::measureTextWidth(saveMessage, 16) + 24;
+            const int bx = (GameConfig::WINDOW_WIDTH - msgW) / 2;
+            const int by = 66;
+            drawHudBox(renderer, bx, by, msgW, 34, UiColor{255, 196, 64, 255});
+            HudRenderer::drawTextCentered(renderer, GameConfig::WINDOW_WIDTH / 2, by + 9,
+                saveMessage, UiColor{96, 220, 120, 255}, 16);
+        }
+        return;
+    }
+
+    if (matchState == MatchState::won) {
+        const int boxW = HudRenderer::measureTextWidth("You Win!  Press any key", 24) + 48;
+        const int bx = (GameConfig::WINDOW_WIDTH - boxW) / 2;
+        drawHudBox(renderer, bx, 10, boxW, 40, UiColor{96, 220, 120, 255});
+        HudRenderer::drawTextCentered(renderer, GameConfig::WINDOW_WIDTH / 2, 20,
+            "You Win!  Press any key", UiColor{96, 220, 120, 255}, 24);
+        return;
+    }
+    if (matchState == MatchState::lost) {
+        const int boxW = HudRenderer::measureTextWidth("You Lose!  Press any key", 24) + 48;
+        const int bx = (GameConfig::WINDOW_WIDTH - boxW) / 2;
+        drawHudBox(renderer, bx, 10, boxW, 40, UiColor{235, 55, 55, 255});
+        HudRenderer::drawTextCentered(renderer, GameConfig::WINDOW_WIDTH / 2, 20,
+            "You Lose!  Press any key", UiColor{235, 55, 55, 255}, 24);
+        return;
+    }
+
+    const std::string escapedText =
+        std::to_string(escaped) + "/" + std::to_string(levelSettings.maxLeaks);
+    const std::string coinsText = std::to_string(currency.getBalance());
+
+    int endX = 22 + 52;
+    endX += HudRenderer::measureTextWidth(coinsText, 16);
+    endX += 20 + HudRenderer::measureTextWidth("Escaped", 16) + 10;
+    endX += HudRenderer::measureTextWidth(escapedText, 16);
+
+    drawHudBox(renderer, 10, 10, endX - 10 + 12, 34, UiColor{255, 196, 64, 255});
+
+    int x = 22;
+    HudRenderer::drawText(renderer, x, 20, "Coins", UiColor{150, 154, 168, 255}, 16);
+    x += 52;
+    HudRenderer::drawText(renderer, x, 18, coinsText, UiColor{255, 196, 64, 255}, 16);
+    x += HudRenderer::measureTextWidth(coinsText, 16) + 20;
+    HudRenderer::drawText(renderer, x, 20, "Escaped", UiColor{235, 55, 55, 255}, 16);
+    x += HudRenderer::measureTextWidth("Escaped", 16) + 10;
+    HudRenderer::drawText(renderer, x, 18, escapedText, UiColor{235, 55, 55, 255}, 16);
 }
 
-void Game::addTurret(SDL_Renderer* renderer, Vector2D posMouse) {
-    Vector2D pos((int)posMouse.x + GameConfig::TILE_CENTER_OFFSET, (int)posMouse.y + GameConfig::TILE_CENTER_OFFSET);
+void Game::addUnit(Vector2D pos) {
+    listUnits.push_back(std::make_shared<Unit>(renderer, pos));
+}
+
+void Game::addTurret(Vector2D posMouse) {
+    int tileX = (int)posMouse.x;
+    int tileY = (int)posMouse.y;
+
+    if (!levelSettings.creativeMode && levelSettings.turretsOnWallsOnly &&
+        !level.isTileWall(tileX, tileY))
+        return;
+
+    if (level.isTileSpawner(tileX, tileY) || level.isTargetTile(tileX, tileY))
+        return;
+
+    for (const auto& turretSelected : listTurrets) {
+        if (turretSelected.checkIfOnTile(tileX, tileY))
+            return;
+    }
+
+    if (!levelSettings.creativeMode && !currency.trySpendOnTurret())
+        return;
+
+    Vector2D pos(tileX + GameConfig::TILE_CENTER_OFFSET, tileY + GameConfig::TILE_CENTER_OFFSET);
     listTurrets.push_back(Turret(renderer, pos));
 }
 

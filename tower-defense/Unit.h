@@ -8,6 +8,12 @@
 #include "Timer.h"
 #include "GameConfig.h"
 
+enum class UnitDeathReason {
+	none,
+	killed,
+	leaked
+};
+
 class Unit {
 public:
 	Unit(SDL_Renderer* renderer, Vector2D setPos);
@@ -18,6 +24,7 @@ public:
 	bool isAlive();
 	Vector2D getPos();
 	void removeHealth(int damage);
+	UnitDeathReason getDeathReason() const;
 
 private:
 	Vector2D pos;
@@ -27,6 +34,7 @@ private:
 	SDL_Texture* texture = nullptr;
 
 	Timer timerJustHurt;
+	UnitDeathReason deathReason = UnitDeathReason::none;
 
 	const int healthMax = GameConfig::UNIT_HEALTH_MAX;
 	int healthCurrent = healthMax;

@@ -16,6 +16,7 @@ void Unit::update(float dT, Level& level, std::vector<std::shared_ptr<Unit>>& li
 	float distanceToTarget = (level.getTargetPos() - pos).magnitude();
 
 	if (distanceToTarget < GameConfig::UNIT_TARGET_REACH_DISTANCE) {
+		deathReason = UnitDeathReason::leaked;
 		healthCurrent = 0;
 	}
 	else {
@@ -81,11 +82,16 @@ void Unit::draw(SDL_Renderer* renderer, int tileSize) {
 				GameConfig::UNIT_TEXTURE_HURT.r,
 				GameConfig::UNIT_TEXTURE_HURT.g,
 				GameConfig::UNIT_TEXTURE_HURT.b);
-		else
+		else if (healthCurrent <= healthMax - 1) {
+			const int shade = (int)(255.0f * GameConfig::UNIT_TEXTURE_DAMAGED_BRIGHTNESS);
+			SDL_SetTextureColorMod(texture, shade, shade, shade);
+		}
+		else {
 			SDL_SetTextureColorMod(texture,
 				GameConfig::UNIT_TEXTURE_NORMAL.r,
 				GameConfig::UNIT_TEXTURE_NORMAL.g,
 				GameConfig::UNIT_TEXTURE_NORMAL.b);
+		}
 
 		//Draw the image at the unit's position.
 		int w, h;
@@ -116,7 +122,13 @@ void Unit::removeHealth(int damage) {
 		healthCurrent -= damage;
 		if (healthCurrent < 0)
 			healthCurrent = 0;
+		if (healthCurrent == 0)
+			deathReason = UnitDeathReason::killed;
 
 		timerJustHurt.resetToMax();
 	}
+}
+
+UnitDeathReason Unit::getDeathReason() const {
+	return deathReason;
 }

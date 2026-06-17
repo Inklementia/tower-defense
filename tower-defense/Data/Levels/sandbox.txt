@@ -1,0 +1,10 @@
+name=Creative
+creative_mode=true
+allow_wall_edit=true
+show_flow_arrows=true
+starting_currency=999
+currency_per_kill=1
+currency_per_leak=-1
+turret_cost=0
+max_leaks=999
+max_rounds=0

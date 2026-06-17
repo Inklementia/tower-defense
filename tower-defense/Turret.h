@@ -15,7 +15,7 @@ public:
 	void update(SDL_Renderer* renderer, float dT, std::vector<std::shared_ptr<Unit>>& listUnits,
 		std::vector<Projectile>& listProjectiles);
 	void draw(SDL_Renderer* renderer, int tileSize);
-	bool checkIfOnTile(int x, int y);
+	bool checkIfOnTile(int x, int y) const;
 
 private:
 	bool updateAngle(float dT);

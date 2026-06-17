@@ -1,9 +1,13 @@
-#include <iostream>
-#include <ctime>
-#include "SDL.h"
-#include "GameConfig.h"
-#include "SDL_mixer.h"
 #include "Game.h"
+#include "GameConfig.h"
+#include "HudRenderer.h"
+#include "LevelSettings.h"
+#include "Menu.h"
+#include "SDL.h"
+#include "SDL_mixer.h"
+#include "TextureLoader.h"
+#include <ctime>
+#include <iostream>
 
 int main(int argc, char* args[]) {
 	//Seed the random number generator with the current time so that it will generate different 
@@ -42,7 +46,7 @@ int main(int argc, char* args[]) {
 		}
 		else {
 			//Create a renderer for GPU accelerated drawing.
-			SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | 
+			SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED |
 				SDL_RENDERER_PRESENTVSYNC);
 			if (renderer == nullptr) {
 				std::cout << "Error: Couldn't create renderer = " << SDL_GetError() << std::endl;
@@ -52,12 +56,33 @@ int main(int argc, char* args[]) {
 				//Ensure transparent graphics are drawn correctly.
 				SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
+				if (!HudRenderer::init()) {
+					std::cout << "Warning: Could not load HUD font" << std::endl;
+				}
+
 				//Output the name of the render driver.
 				SDL_RendererInfo rendererInfo;
 				SDL_GetRendererInfo(renderer, &rendererInfo);
 				std::cout << "Renderer = " << rendererInfo.name << std::endl;
 
-				Game game(window, renderer);
+				bool appRunning = true;
+				while (appRunning) {
+					int levelIndex = Menu::run(renderer);
+					if (levelIndex < 0) {
+						appRunning = false;
+						break;
+					}
+
+					LevelSettings settings = LevelLoader::load(LevelLoader::getLevelPath(levelIndex));
+					Game game(renderer, settings);
+					GameRunResult result = game.run();
+
+					if (result == GameRunResult::quit)
+						appRunning = false;
+				}
+
+				TextureLoader::deallocateTextures();
+				HudRenderer::shutdown();
 
 				//Clean up.
 				SDL_DestroyRenderer(renderer);

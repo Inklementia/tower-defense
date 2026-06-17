@@ -23,13 +23,8 @@ namespace GameConfig {
 	constexpr float PI = 3.14159265359f;
 
 	// Game loop
-	constexpr int FPS = 60;
-	constexpr float FRAME_DT = 1.0f / FPS;
-
-	// Spawning
-	constexpr float SPAWN_INTERVAL_S = 0.25f;
-	constexpr float ROUND_DELAY_S = 5.0f;
-	constexpr int UNITS_PER_ROUND = 15;
+	constexpr float FRAME_DT = 1.0f / 60.0f;
+	constexpr int UNITS_PER_ROUND_GROWTH = 3;
 
 	// Units
 	constexpr float UNIT_SPEED = 1.5f;
@@ -40,6 +35,7 @@ namespace GameConfig {
 	constexpr float UNIT_COLLISION_ANGLE = PI / 4.0f;
 	constexpr int UNIT_HEALTH_MAX = 2;
 	constexpr float UNIT_HURT_FLASH_S = 0.25f;
+	constexpr float UNIT_TEXTURE_DAMAGED_BRIGHTNESS = 0.65f;
 	constexpr Color UNIT_TEXTURE_NORMAL{ 255, 255, 255, 255 };
 	constexpr Color UNIT_TEXTURE_HURT{ 255, 0, 0, 255 };
 
@@ -64,12 +60,8 @@ namespace GameConfig {
 	// Level / flow field
 	constexpr unsigned char FLOW_DISTANCE_MAX = 255;
 
-	// UI
-	constexpr int OVERLAY_X = 40;
-	constexpr int OVERLAY_Y = 40;
-
-	// Colors
-	constexpr Color CLEAR_COLOR{ 255, 255, 255, 255 };
+	// Playfield colors
+	constexpr Color CLEAR_COLOR{ 225, 225, 225, 255 };
 	constexpr Color LEVEL_CHECKER_LIGHT{ 240, 240, 240, 255 };
 	constexpr Color LEVEL_CHECKER_DARK{ 225, 225, 225, 255 };
 

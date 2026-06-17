@@ -98,7 +98,7 @@ void Turret::drawTextureWithOffset(SDL_Renderer* renderer, SDL_Texture* textureS
 	}
 }
 
-bool Turret::checkIfOnTile(int x, int y) {
+bool Turret::checkIfOnTile(int x, int y) const {
 	return ((int)pos.x == x && (int)pos.y == y);
 }
 
