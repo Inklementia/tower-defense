@@ -3,54 +3,53 @@
 
 const float Projectile::speed = GameConfig::PROJECTILE_SPEED;
 const float Projectile::size = GameConfig::PROJECTILE_SIZE;
-const float Projectile::distanceTraveledMax = GameConfig::PROJECTILE_MAX_DISTANCE;
+const float Projectile::distanceTraveledMax =
+    GameConfig::PROJECTILE_MAX_DISTANCE;
 
-
-Projectile::Projectile(SDL_Renderer* renderer, Vector2D setPos, Vector2D setDirectionNormal) :
-	pos(setPos), directionNormal(setDirectionNormal) {
-	texture = TextureLoader::loadTexture(renderer, "Projectile.bmp");
+Projectile::Projectile(SDL_Renderer *renderer, Vector2D setPos,
+                       Vector2D setDirectionNormal)
+    : pos(setPos), directionNormal(setDirectionNormal) {
+  texture = TextureLoader::loadTexture(renderer, "Projectile.bmp");
 }
 
-void Projectile::update(float dT, std::vector<std::shared_ptr<Unit>>& listUnits) {
-	//Move the projectile forward.
-	float distanceMove = speed * dT;
-	pos += directionNormal * distanceMove;
+void Projectile::update(float dT,
+                        std::vector<std::shared_ptr<Unit>> &listUnits) {
+  // Move the projectile forward.
+  float distanceMove = speed * dT;
+  pos += directionNormal * distanceMove;
 
-	distanceTraveled += distanceMove;
-	if (distanceTraveled >= distanceTraveledMax)
-		collisionOccurred = true;
+  distanceTraveled += distanceMove;
+  if (distanceTraveled >= distanceTraveledMax)
+    collisionOccurred = true;
 
-	checkCollisions(listUnits);
+  checkCollisions(listUnits);
 }
 
-void Projectile::draw(SDL_Renderer* renderer, int tileSize) {
-	if (renderer != nullptr) {
-		//Draw the image at the projectile's position.
-		int w, h;
-		SDL_QueryTexture(texture, NULL, NULL, &w, &h);
-		SDL_Rect rect = {
-			(int)(pos.x * tileSize) - w / 2,
-			(int)(pos.y * tileSize) - h / 2,
-			w,
-			h };
-		SDL_RenderCopy(renderer, texture, NULL, &rect);
-	}
+void Projectile::draw(SDL_Renderer *renderer, int tileSize) {
+  if (renderer != nullptr) {
+    // Draw the image at the projectile's position.
+    int w, h;
+    SDL_QueryTexture(texture, NULL, NULL, &w, &h);
+    SDL_Rect rect = {(int)(pos.x * tileSize) - w / 2,
+                     (int)(pos.y * tileSize) - h / 2, w, h};
+    SDL_RenderCopy(renderer, texture, NULL, &rect);
+  }
 }
 
-bool Projectile::getCollisionOccurred() {
-	return collisionOccurred;
-}
+bool Projectile::getCollisionOccurred() { return collisionOccurred; }
 
-void Projectile::checkCollisions(std::vector<std::shared_ptr<Unit>>& listUnits) {
-	//Check for a collision with any of the units.
-	if (collisionOccurred == false) {
-		//Check if this overlaps any of the enemy units or not.
-		for (int count = 0; count < listUnits.size() && collisionOccurred == false; count++) {
-			auto& unitSelected = listUnits[count];
-			if (unitSelected != nullptr && unitSelected->checkOverlap(pos, size)) {
-				unitSelected->removeHealth(GameConfig::PROJECTILE_DAMAGE);
-				collisionOccurred = true;
-			}
-		}
-	}
+void Projectile::checkCollisions(
+    std::vector<std::shared_ptr<Unit>> &listUnits) {
+  // Check for a collision with any of the units.
+  if (collisionOccurred == false) {
+    // Check if this overlaps any of the enemy units or not.
+    for (int count = 0; count < listUnits.size() && collisionOccurred == false;
+         count++) {
+      auto &unitSelected = listUnits[count];
+      if (unitSelected != nullptr && unitSelected->checkOverlap(pos, size)) {
+        unitSelected->removeHealth(GameConfig::PROJECTILE_DAMAGE);
+        collisionOccurred = true;
+      }
+    }
+  }
 }

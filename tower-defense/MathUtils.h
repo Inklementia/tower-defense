@@ -3,8 +3,8 @@
 
 class MathUtils {
 public:
-	static const float PI;
+  static const float PI;
 
-	static float angleRadToDeg(float angle);
-	static float angleDegToRad(float angle);
+  static float angleRadToDeg(float angle);
+  static float angleDegToRad(float angle);
 };
