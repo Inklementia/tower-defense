@@ -330,6 +330,7 @@ void Level::calculateDistances() {
 
   // Create a queue that will contain the indices to be checked.
   std::queue<int> listIndicesToCheck;
+
   // Set the target tile's flow value to 0 and add it to the queue.
   listTiles[indexTarget].flowDistance = 0;
   listIndicesToCheck.push(indexTarget);
@@ -390,8 +391,8 @@ void Level::calculateFlowDirections() {
         if (indexNeighbor > -1 && indexNeighbor < listTiles.size() &&
             neighborX > -1 && neighborX < tileCountX && neighborY > -1 &&
             neighborY < tileCountY) {
-          // If the current neighbor's distance is lower than the best then use
-          // it.
+
+          // If the current neighbor's distance is lower than the best then use it.
           if (listTiles[indexNeighbor].flowDistance < flowFieldBest) {
             flowFieldBest = listTiles[indexNeighbor].flowDistance;
             listTiles[indexCurrent].flowDirectionX = offsetX;

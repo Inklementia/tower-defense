@@ -20,10 +20,9 @@ SDL_Texture *TextureLoader::loadTexture(SDL_Renderer *renderer,
       SDL_Surface *surfaceTemp = SDL_LoadBMP(filepath.c_str());
       if (surfaceTemp != nullptr) {
 
-        // The surface was created successfully so attempt to create a texture
-        // with it.
-        SDL_Texture *textureOutput =
-            SDL_CreateTextureFromSurface(renderer, surfaceTemp);
+        // The surface was created successfully so attempt to create a texture with it.
+        SDL_Texture *textureOutput = SDL_CreateTextureFromSurface(renderer, surfaceTemp);
+
         // Free the surface because it's no longer needed.
         SDL_FreeSurface(surfaceTemp);
 
@@ -31,8 +30,7 @@ SDL_Texture *TextureLoader::loadTexture(SDL_Renderer *renderer,
           // Enable transparency for the texture.
           SDL_SetTextureBlendMode(textureOutput, SDL_BLENDMODE_BLEND);
 
-          // Add the texture to the map of loaded textures to keep track of it
-          // and for clean-up purposes.
+          // Add the texture to the map of loaded textures to keep track of it and for clean-up purposes.
           umapTexturesLoaded[filename] = textureOutput;
 
           return textureOutput;
